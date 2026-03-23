@@ -105,8 +105,6 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .footer { background:var(--forest); padding:60px 40px; text-align:center; color:var(--sage-light); }
 .footer-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--white); margin-bottom:12px; }
 .footer-text { font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:2px; font-weight:300; }
-@media print { .nav{display:none} .cover{min-height:auto;padding:80px 40px;page-break-after:always} .section{page-break-inside:avoid} .plant-card{break-inside:avoid} .care-card{break-inside:avoid} body{font-size:12px} }
-@media (max-width:768px) { .nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none} .nav-inner::-webkit-scrollbar{display:none} .plant-grid{grid-template-columns:1fr} .section{padding:60px 24px} .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto} .mosaic img:nth-child(n){grid-column:span 1} .mosaic img:nth-child(1){grid-column:span 2} .cover-hero{height:200px} .callout-box{padding:28px 24px} .seasons-timeline{grid-template-columns:1fr 1fr} .season-col{border-bottom:1px solid rgba(122,139,111,.1)} .care-grid{grid-template-columns:1fr} .banner{padding:60px 24px} .lifestyle-layout{grid-template-columns:1fr;gap:30px} .featured{grid-template-columns:1fr;gap:30px} .featured.reverse{direction:ltr} .featured-img{height:auto;max-height:350px} .map-ref-grid{grid-template-columns:1fr} .living-hero{grid-template-columns:1fr;gap:30px} .living-hero-img{height:300px} .living-features{grid-template-columns:1fr} .seasons{grid-template-columns:1fr 1fr} .section-divider-ornament img{width:150px} .rose-hero-banner img{height:220px} .edible-list{grid-template-columns:1fr} }
 .featured { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px; }
 .featured.reverse { direction:rtl; } .featured.reverse > * { direction:ltr; }
 .featured-img { width:100%; height:450px; object-fit:cover; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
@@ -123,7 +121,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .section-divider-ornament img { width:200px; height:auto; opacity:.7; }
 .map-reference { margin-top:50px; text-align:left; }
 .map-reference h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--forest); text-align:center; margin-bottom:30px; }
-.map-ref-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.map-ref-grid { display:flex; flex-direction:column; gap:8px; }
 .map-ref-group { border-radius:8px; border-left:4px solid var(--sage); overflow:hidden; }
 .map-ref-group summary { padding:16px 20px; background:var(--cream); cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; }
 .map-ref-group summary::-webkit-details-marker { display:none; }
@@ -174,6 +172,8 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .intro-text p + p { margin-top:24px; }
 .care-card.care-rose { border-left-color:var(--rose); } .care-card.care-rose li::before { background:var(--rose-pale); }
 .care-card.care-fruit { border-left-color:var(--gold); } .care-card.care-fruit li::before { background:var(--gold-pale); }
+@media print { .nav{display:none} .cover{min-height:auto;padding:80px 40px;page-break-after:always} .section{page-break-inside:avoid} .plant-card{break-inside:avoid} .care-card{break-inside:avoid} body{font-size:12px} }
+@media (max-width:768px) { .nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none} .nav-inner::-webkit-scrollbar{display:none} .plant-grid{grid-template-columns:1fr} .section{padding:60px 24px} .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto} .mosaic img:nth-child(n){grid-column:span 1} .mosaic img:nth-child(1){grid-column:span 2} .cover-hero{height:200px} .callout-box{padding:28px 24px} .seasons-timeline{grid-template-columns:1fr 1fr} .season-col{border-bottom:1px solid rgba(122,139,111,.1)} .care-grid{grid-template-columns:1fr} .banner{padding:60px 24px} .lifestyle-layout{grid-template-columns:1fr;gap:30px} .featured{grid-template-columns:1fr;gap:30px} .featured.reverse{direction:ltr} .featured-img{height:auto;max-height:350px} .living-hero{grid-template-columns:1fr;gap:30px} .living-hero-img{height:300px} .living-features{grid-template-columns:1fr} .seasons{grid-template-columns:1fr 1fr} .section-divider-ornament img{width:150px} .rose-hero-banner img{height:220px} .edible-list{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -399,7 +399,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
         <h3>Plant Directory</h3>
         <div class="map-ref-grid">
 
-          <details class="map-ref-group ref-roses" open>
+          <details class="map-ref-group ref-roses">
             <summary><h4>Roses</h4></summary>
             <div class="map-ref-items">
             <div class="map-ref-item"><span class="map-ref-num">3</span> "Easy on the Eyes" Rose</div>
@@ -437,7 +437,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
             </div>
           </details>
 
-          <details class="map-ref-group ref-trees" open>
+          <details class="map-ref-group ref-trees">
             <summary><h4>Trees &amp; Shrubs</h4></summary>
             <div class="map-ref-items">
             <div class="map-ref-item"><span class="map-ref-num">4</span> Japanese Maple</div>
@@ -470,7 +470,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
             </div>
           </details>
 
-          <details class="map-ref-group ref-hydrangeas" open>
+          <details class="map-ref-group ref-hydrangeas">
             <summary><h4>Hydrangeas</h4></summary>
             <div class="map-ref-items">
             <div class="map-ref-item"><span class="map-ref-num">15</span> White Hydrangea</div>
@@ -487,7 +487,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
             </div>
           </details>
 
-          <details class="map-ref-group ref-fruit" open>
+          <details class="map-ref-group ref-fruit">
             <summary><h4>Fruit Trees</h4></summary>
             <div class="map-ref-items">
             <div class="map-ref-item"><span class="map-ref-num">7</span> Pomegranate</div>
@@ -502,7 +502,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
             </div>
           </details>
 
-          <details class="map-ref-group ref-perennials" open>
+          <details class="map-ref-group ref-perennials">
             <summary><h4>Perennials</h4></summary>
             <div class="map-ref-items">
             <div class="map-ref-item"><span class="map-ref-num">1</span> Peony</div>
@@ -527,7 +527,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
             </div>
           </details>
 
-          <details class="map-ref-group ref-edibles" open>
+          <details class="map-ref-group ref-edibles">
             <summary><h4>Edibles &amp; Herbs</h4></summary>
             <div class="map-ref-items">
             <div class="map-ref-item"><span class="map-ref-num">45</span> Rosemary</div>
@@ -548,8 +548,8 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 <!-- ROSES -->
 <section class="section" id="roses">
   <div class="section-header">
-    <p class="section-label">The Rose Collection</p>
-    <h2 class="section-title">Over Thirty <em>Rose Varieties</em></h2>
+    <p class="section-label">The Star of the Garden</p>
+    <h2 class="section-title">Over Fifteen <em>Rose Varieties</em></h2>
     <p class="section-intro">A world-class collection featuring celebrated cultivars from David Austin (England), Meilland (France), and Kordes (Germany). From climbing roses adorning fences to compact bush roses lining walkways.</p>
   </div>
 
@@ -755,9 +755,9 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
   <div class="featured">
     <img src="images/image4.png" alt="Japanese Maple" class="featured-img">
     <div class="featured-content">
-      <p class="featured-label">Ornamental Centrepiece</p>
+      <p class="featured-label">Ornamental Tree</p>
       <h3 class="featured-name">Japanese Maple</h3>
-      <p class="featured-desc">A stunning specimen displaying both green and red foliage colours. Japanese Maples are prized worldwide for their elegant, layered branching habit and extraordinary autumn colour. This tree becomes the garden's focal point in every season.</p>
+      <p class="featured-desc">A stunning specimen displaying both green and red foliage colours. Japanese Maples are prized worldwide for their elegant, layered branching habit and extraordinary autumn colour. This tree provides year-round beauty near the front of the property.</p>
       <span class="plant-card-tag tag-tree">Ornamental Tree</span>
     </div>
   </div>
