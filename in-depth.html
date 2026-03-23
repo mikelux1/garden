@@ -20,12 +20,12 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .cover-botanical img:hover { transform:scale(1.15); opacity:1; }
 .cover-ornament { font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--gold); letter-spacing:12px; margin-bottom:20px; opacity:.7; }
 .cover h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(42px,7vw,80px); font-weight:300; color:var(--white); line-height:1.1; letter-spacing:3px; margin-bottom:20px; text-shadow:0 2px 40px rgba(0,0,0,.3); }
-.cover h1 em { font-style:italic; font-weight:400; color:var(--gold-pale); }
-.cover-subtitle { font-family:'Josefin Sans',sans-serif; font-size:13px; letter-spacing:6px; text-transform:uppercase; color:var(--sage-light); margin-bottom:50px; font-weight:300; }
+.cover h1 em { font-style:italic; font-weight:400; color:#F0DFB8; text-shadow:0 1px 8px rgba(0,0,0,.4); }
+.cover-subtitle { font-family:'Josefin Sans',sans-serif; font-size:13px; letter-spacing:6px; text-transform:uppercase; color:#D4CFBE; margin-bottom:50px; font-weight:300; text-shadow:0 1px 6px rgba(0,0,0,.3); }
 .cover-stats { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
 .cover-stat { text-align:center; }
-.cover-stat-number { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:var(--gold-pale); display:block; }
-.cover-stat-label { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--sage-light); font-weight:300; }
+.cover-stat-number { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:#F0DFB8; display:block; text-shadow:0 1px 6px rgba(0,0,0,.3); }
+.cover-stat-label { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#D4CFBE; font-weight:300; text-shadow:0 1px 4px rgba(0,0,0,.3); }
 .cover-scroll { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); z-index:1; animation:gentleBounce 2s ease-in-out infinite; }
 .cover-scroll svg { width:24px; height:24px; stroke:var(--sage-light); opacity:.5; }
 @keyframes gentleBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
@@ -76,8 +76,14 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .edible-block li { font-size:15px; color:var(--bark); line-height:1.8; padding:6px 0; border-bottom:1px solid rgba(122,139,111,.1); }
 .edible-block li:last-child { border-bottom:none; }
 .map-container { background:var(--white); border-radius:12px; padding:40px; box-shadow:0 4px 30px rgba(0,0,0,.05); text-align:center; }
-.map-svg-wrap { max-width:700px; margin:0 auto; }
+.map-svg-wrap { max-width:700px; margin:0 auto; position:relative; cursor:zoom-in; }
 .map-svg-wrap svg { width:100%; height:auto; }
+.map-zoom-hint { font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--bark-light); margin-top:12px; opacity:.6; }
+.map-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.85); cursor:zoom-out; overflow:auto; -webkit-overflow-scrolling:touch; }
+.map-overlay.active { display:flex; align-items:flex-start; justify-content:center; padding:20px; }
+.map-overlay svg { width:max(100%,800px); height:auto; background:var(--white); border-radius:8px; padding:20px; }
+.map-overlay-close { position:fixed; top:16px; right:16px; z-index:1001; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.9); border:none; font-size:20px; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+.map-overlay.active + .map-overlay-close { display:flex; }
 .map-legend { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px; }
 .map-legend-item { display:flex; align-items:center; gap:8px; font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:1px; color:var(--bark); }
 .map-legend-dot { width:12px; height:12px; border-radius:50%; }
@@ -277,7 +283,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
           <text x="254.9" y="386" text-anchor="middle" font-size="8" fill="#8B7355" letter-spacing="1">PATIO</text>
           <!-- Back garden -->
           <rect x="0" y="395" width="600" height="905" rx="6" fill="#d4e2cc"/>
-          <text x="300" y="418" text-anchor="middle" font-size="13" fill="#5C4A3A" letter-spacing="3" font-weight="400">BACK GARDEN</text>
+          <text x="300" y="1285" text-anchor="middle" font-size="11" fill="#5C4A3A" letter-spacing="3" font-weight="300" opacity=".5">BACK GARDEN</text>
 
           <!-- Plant markers -->
           <g><circle cx="31.7" cy="47.5" r="11" fill="#D4A574"/><text x="31.7" y="50.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">1</text><title>Peony</title></g>
@@ -384,7 +390,10 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
           <g><circle cx="274.4" cy="508.6" r="11" fill="#8BC48A"/><text x="274.4" y="511.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">102</text><title>Vegetable Beds</title></g>
           <g><circle cx="15.5" cy="513.5" r="11" fill="#D4A574"/><text x="15.5" y="516.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">103</text><title>Bleeding Heart</title></g>
         </svg>
+        <p class="map-zoom-hint">Tap map to zoom in</p>
       </div>
+      <div class="map-overlay" id="mapOverlay"></div>
+      <button class="map-overlay-close" id="mapClose">&times;</button>
       <div class="map-legend">
         <div class="map-legend-item"><span class="map-legend-dot" style="background:#C4737B"></span> Roses</div>
         <div class="map-legend-item"><span class="map-legend-dot" style="background:#7A8B6F"></span> Trees &amp; Shrubs</div>
@@ -1393,5 +1402,25 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
   <p class="footer-text">Beautiful and ready for you</p>
 </footer>
 
+<script>
+(function(){
+  var wrap=document.querySelector('.map-svg-wrap');
+  var overlay=document.getElementById('mapOverlay');
+  var closeBtn=document.getElementById('mapClose');
+  var svg=wrap.querySelector('svg');
+  wrap.addEventListener('click',function(){
+    overlay.innerHTML=svg.outerHTML;
+    overlay.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+  closeBtn.addEventListener('click',function(){
+    overlay.classList.remove('active');
+    document.body.style.overflow='';
+  });
+  overlay.addEventListener('click',function(e){
+    if(e.target===overlay){overlay.classList.remove('active');document.body.style.overflow='';}
+  });
+})();
+</script>
 </body>
 </html>
