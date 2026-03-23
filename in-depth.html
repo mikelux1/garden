@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Garden — A Guide for New Owners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --cream:#F7F3ED; --sage:#7A8B6F; --sage-light:#A8B89E; --sage-pale:#E8EDE4; --forest:#2D3B28; --bark:#5C4A3A; --bark-light:#8B7355; --rose:#C4737B; --rose-pale:#E8C4C8; --gold:#B8964E; --gold-pale:#E8D5A8; --charcoal:#2A2A2A; --white:#FFF; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); background:var(--cream); line-height:1.7; font-size:15px; }
+.cover { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; overflow:hidden; background:linear-gradient(160deg,var(--forest) 0%,#3D4F35 40%,var(--sage) 100%); }
+.cover::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 20% 80%,rgba(196,115,123,.15) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(184,150,78,.12) 0%,transparent 50%); }
+.cover-content { position:relative; z-index:1; padding:60px 40px; }
+.cover-botanical { display:flex; gap:8px; justify-content:center; margin-bottom:50px; flex-wrap:wrap; max-width:600px; }
+.cover-botanical img { width:90px; height:90px; object-fit:cover; border-radius:50%; border:2px solid rgba(255,255,255,.3); opacity:.85; transition:transform .4s ease,opacity .4s ease; }
+.cover-botanical img:hover { transform:scale(1.15); opacity:1; }
+.cover-ornament { font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--gold); letter-spacing:12px; margin-bottom:20px; opacity:.7; }
+.cover h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(42px,7vw,80px); font-weight:300; color:var(--white); line-height:1.1; letter-spacing:3px; margin-bottom:20px; text-shadow:0 2px 40px rgba(0,0,0,.3); }
+.cover h1 em { font-style:italic; font-weight:400; color:var(--gold-pale); }
+.cover-subtitle { font-family:'Josefin Sans',sans-serif; font-size:13px; letter-spacing:6px; text-transform:uppercase; color:var(--sage-light); margin-bottom:50px; font-weight:300; }
+.cover-stats { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
+.cover-stat { text-align:center; }
+.cover-stat-number { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:var(--gold-pale); display:block; }
+.cover-stat-label { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--sage-light); font-weight:300; }
+.cover-scroll { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); z-index:1; animation:gentleBounce 2s ease-in-out infinite; }
+.cover-scroll svg { width:24px; height:24px; stroke:var(--sage-light); opacity:.5; }
+@keyframes gentleBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+.cover-hero { width:min(600px,85vw); height:280px; object-fit:cover; border-radius:12px; border:3px solid rgba(255,255,255,.2); margin-bottom:50px; box-shadow:0 20px 60px rgba(0,0,0,.3); }
+.nav { position:sticky; top:0; z-index:100; background:rgba(247,243,237,.92); backdrop-filter:blur(20px); border-bottom:1px solid rgba(122,139,111,.15); padding:0 40px; }
+.nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:30px; flex-wrap:wrap; padding:14px 0; }
+.nav a { font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; color:var(--bark-light); white-space:nowrap; transition:color .3s; font-weight:400; }
+.nav a:hover { color:var(--forest); }
+.nav-brand { font-family:'Cormorant Garamond',serif!important; font-size:18px!important; letter-spacing:1px!important; text-transform:none!important; color:var(--forest)!important; font-weight:500!important; margin-right:20px; }
+.nav-back { color:var(--sage)!important; font-size:11px!important; letter-spacing:1px!important; margin-right:10px; }
+.section { max-width:1200px; margin:0 auto; padding:100px 40px; }
+.section-header { text-align:center; margin-bottom:60px; }
+.section-label { font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:5px; text-transform:uppercase; color:var(--sage); margin-bottom:12px; font-weight:400; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,5vw,52px); font-weight:300; color:var(--forest); line-height:1.2; margin-bottom:20px; }
+.section-title em { font-style:italic; color:var(--rose); }
+.section-intro { max-width:680px; margin:0 auto; text-align:center; color:var(--bark); font-size:15px; line-height:1.9; }
+.section-divider { text-align:center; padding:20px 0; }
+.section-divider img { max-width:200px; }
+.section-divider-cream img { opacity:.8; }
+.intro-text { max-width:750px; margin:0 auto; text-align:center; font-size:17px; line-height:2; color:var(--bark); }
+.callout-box { max-width:680px; margin:50px auto 0; background:linear-gradient(135deg,var(--sage-pale) 0%,#EAF0E6 100%); border-radius:12px; padding:36px 40px; text-align:center; border:1px solid rgba(122,139,111,.2); }
+.callout-box p { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; font-style:italic; color:var(--forest); line-height:1.6; }
+.mosaic { display:grid; grid-template-columns:repeat(6,1fr); grid-template-rows:200px 200px; gap:8px; margin:50px 0 0; border-radius:8px; overflow:hidden; }
+.mosaic img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.mosaic img:hover { transform:scale(1.05); }
+.mosaic img:nth-child(1) { grid-column:span 2; } .mosaic img:nth-child(2) { grid-column:span 2; } .mosaic img:nth-child(3) { grid-column:span 2; }
+.mosaic img:nth-child(4) { grid-column:span 3; } .mosaic img:nth-child(5) { grid-column:span 3; }
+.banner { width:100%; padding:100px 40px; text-align:center; position:relative; }
+.banner-sage { background:linear-gradient(135deg,var(--sage-pale) 0%,var(--cream) 100%); }
+.banner-rose { background:linear-gradient(135deg,#F5E6E8 0%,var(--cream) 100%); }
+.banner-warm { background:linear-gradient(135deg,#F5F0E4 0%,var(--cream) 100%); }
+.plant-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:30px; }
+.plant-card { background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 2px 20px rgba(0,0,0,.04); transition:transform .4s ease,box-shadow .4s ease; }
+.plant-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.08); }
+.plant-card-img { width:100%; height:240px; object-fit:cover; display:block; }
+.plant-card-body { padding:24px; }
+.plant-card-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--forest); margin-bottom:8px; line-height:1.3; }
+.plant-card-desc { font-size:13px; color:var(--bark); line-height:1.7; }
+.plant-card-tag { display:inline-block; font-family:'Josefin Sans',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-top:12px; font-weight:400; }
+.tag-perennial { background:var(--sage-pale); color:var(--forest); } .tag-fruit { background:var(--gold-pale); color:var(--bark); }
+.tag-rose { background:var(--rose-pale); color:var(--rose); } .tag-tree { background:#E4DED5; color:var(--bark); }
+.note-box { max-width:750px; margin:0 auto 50px; background:linear-gradient(135deg,#F5E6E8 0%,#FDF5F6 100%); border-radius:10px; padding:28px 36px; text-align:center; border:1px solid rgba(196,115,123,.15); }
+.note-box p { font-size:15px; color:var(--bark); line-height:1.8; }
+.edible-block { max-width:680px; margin:0 auto; }
+.edible-block h3 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:400; color:var(--forest); margin-bottom:20px; margin-top:40px; }
+.edible-block h3:first-child { margin-top:0; }
+.edible-block ul { list-style:none; padding:0; }
+.edible-block li { font-size:15px; color:var(--bark); line-height:1.8; padding:6px 0; border-bottom:1px solid rgba(122,139,111,.1); }
+.edible-block li:last-child { border-bottom:none; }
+.map-container { background:var(--white); border-radius:12px; padding:40px; box-shadow:0 4px 30px rgba(0,0,0,.05); text-align:center; }
+.map-svg-wrap { max-width:700px; margin:0 auto; }
+.map-svg-wrap svg { width:100%; height:auto; }
+.map-legend { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px; }
+.map-legend-item { display:flex; align-items:center; gap:8px; font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:1px; color:var(--bark); }
+.map-legend-dot { width:12px; height:12px; border-radius:50%; }
+.seasons-timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:40px; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 2px 15px rgba(0,0,0,.04); }
+.season-col { padding:28px 20px; text-align:center; border-right:1px solid rgba(122,139,111,.1); }
+.season-col:last-child { border-right:none; }
+.season-photo { width:60px; height:60px; border-radius:50%; object-fit:cover; margin:0 auto 12px; display:block; box-shadow:0 2px 8px rgba(0,0,0,.1); }
+.season-icon { font-size:28px; margin-bottom:10px; display:block; }
+.season-name { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--forest); margin-bottom:8px; }
+.season-plants { font-size:12px; color:var(--bark); line-height:1.6; }
+.lifestyle-layout { display:grid; grid-template-columns:1fr 1fr; gap:50px; max-width:1000px; margin:0 auto; align-items:center; }
+.lifestyle-layout img { width:100%; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,.08); }
+.lifestyle-list { list-style:none; padding:0; }
+.lifestyle-list li { font-size:15px; color:var(--bark); line-height:1.8; padding:8px 0 8px 24px; position:relative; }
+.lifestyle-list li::before { content:''; position:absolute; left:0; top:16px; width:8px; height:8px; background:var(--sage-light); border-radius:50%; }
+.care-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:30px; }
+.care-card { background:var(--white); border-radius:8px; padding:36px; box-shadow:0 2px 15px rgba(0,0,0,.04); border-left:3px solid var(--sage); }
+.care-card-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:500; color:var(--forest); margin-bottom:18px; }
+.care-card ul { list-style:none; padding:0; }
+.care-card li { font-size:14px; color:var(--bark); line-height:1.8; padding:6px 0 6px 20px; position:relative; }
+.care-card li::before { content:''; position:absolute; left:0; top:14px; width:6px; height:6px; background:var(--sage-light); border-radius:50%; }
+.care-card.care-note { border-left-color:var(--bark-light); }
+.care-card.care-note li::before { background:#D4CCC4; }
+.botanical-border { width:100%; height:80px; background-image:url('additional%20images/horizontal%20border.png'); background-repeat:repeat-x; background-size:auto 80px; background-position:center; opacity:.7; }
+.footer { background:var(--forest); padding:60px 40px; text-align:center; color:var(--sage-light); }
+.footer-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--white); margin-bottom:12px; }
+.footer-text { font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:2px; font-weight:300; }
+@media print { .nav{display:none} .cover{min-height:auto;padding:80px 40px;page-break-after:always} .section{page-break-inside:avoid} .plant-card{break-inside:avoid} .care-card{break-inside:avoid} body{font-size:12px} }
+@media (max-width:768px) { .nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none} .nav-inner::-webkit-scrollbar{display:none} .plant-grid{grid-template-columns:1fr} .section{padding:60px 24px} .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto} .mosaic img:nth-child(n){grid-column:span 1} .mosaic img:nth-child(1){grid-column:span 2} .cover-hero{height:200px} .callout-box{padding:28px 24px} .seasons-timeline{grid-template-columns:1fr 1fr} .season-col{border-bottom:1px solid rgba(122,139,111,.1)} .care-grid{grid-template-columns:1fr} .banner{padding:60px 24px} .lifestyle-layout{grid-template-columns:1fr;gap:30px} .featured{grid-template-columns:1fr;gap:30px} .featured.reverse{direction:ltr} .map-ref-grid{grid-template-columns:1fr} .living-hero{grid-template-columns:1fr;gap:30px} .living-hero-img{height:300px} .living-features{grid-template-columns:1fr} .seasons{grid-template-columns:1fr 1fr} .section-divider-ornament img{width:150px} .rose-hero-banner img{height:220px} .edible-list{grid-template-columns:1fr} }
+.featured { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px; }
+.featured.reverse { direction:rtl; } .featured.reverse > * { direction:ltr; }
+.featured-img { width:100%; height:450px; object-fit:cover; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
+.featured-content { padding:20px 0; }
+.featured-label { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); margin-bottom:12px; font-weight:400; }
+.featured-name { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:400; color:var(--forest); line-height:1.2; margin-bottom:20px; }
+.featured-desc { font-size:15px; color:var(--bark); line-height:1.9; margin-bottom:20px; }
+.plant-card-origin { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--sage); margin-bottom:10px; font-weight:400; }
+.rose-hero-banner { width:100%; position:relative; overflow:hidden; border-radius:8px; margin-bottom:60px; }
+.rose-hero-banner img { width:100%; height:350px; object-fit:cover; display:block; }
+.rose-hero-banner::before { content:''; position:absolute; top:0; left:0; right:0; height:80px; background:linear-gradient(to bottom,rgba(247,243,237,.6),transparent); z-index:1; }
+.rose-hero-banner::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top,rgba(247,243,237,.6),transparent); z-index:1; }
+.section-divider-ornament { display:flex; align-items:center; justify-content:center; padding:30px 0; }
+.section-divider-ornament img { width:200px; height:auto; opacity:.7; }
+.map-reference { margin-top:50px; text-align:left; }
+.map-reference h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--forest); text-align:center; margin-bottom:30px; }
+.map-ref-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.map-ref-group { padding:20px; background:var(--cream); border-radius:8px; border-left:4px solid var(--sage); }
+.map-ref-group.ref-roses { border-left-color:var(--rose); }
+.map-ref-group.ref-hydrangeas { border-left-color:#7B93DB; }
+.map-ref-group.ref-fruit { border-left-color:var(--gold); }
+.map-ref-group.ref-perennials { border-left-color:#D4A574; }
+.map-ref-group.ref-edibles { border-left-color:#8BC48A; }
+.map-ref-group h4 { font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; font-weight:500; margin-bottom:12px; color:var(--bark); }
+.map-ref-item { display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--bark); line-height:1.5; padding:3px 0; }
+.map-ref-num { display:inline-flex; align-items:center; justify-content:center; min-width:24px; height:24px; border-radius:50%; font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:500; color:var(--white); flex-shrink:0; }
+.ref-roses .map-ref-num { background:var(--rose); }
+.ref-trees .map-ref-num { background:var(--sage); }
+.ref-hydrangeas .map-ref-num { background:#7B93DB; }
+.ref-fruit .map-ref-num { background:var(--gold); }
+.ref-perennials .map-ref-num { background:#D4A574; }
+.ref-edibles .map-ref-num { background:#8BC48A; }
+.edible-highlight { background:linear-gradient(135deg,#F5F0E4 0%,var(--cream) 100%); border-radius:12px; padding:50px; margin-bottom:40px; }
+.edible-highlight h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--forest); margin-bottom:20px; }
+.edible-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:20px; }
+.edible-item { display:flex; gap:16px; align-items:start; }
+.edible-item img { width:70px; height:70px; object-fit:cover; border-radius:6px; flex-shrink:0; }
+.edible-item-name { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:var(--forest); }
+.edible-item-desc { font-size:12px; color:var(--bark); line-height:1.5; margin-top:4px; }
+.living-section { background:linear-gradient(135deg,#F0EDE4 0%,var(--cream) 50%,#E8EDE4 100%); padding:100px 40px; }
+.living-inner { max-width:1200px; margin:0 auto; }
+.living-hero { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:70px; }
+.living-hero-img { width:100%; height:500px; object-fit:cover; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
+.living-hero-text h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--forest); line-height:1.4; margin-bottom:20px; }
+.living-hero-text p { font-size:15px; color:var(--bark); line-height:1.9; margin-bottom:16px; }
+.living-features { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.living-feature { background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 2px 20px rgba(0,0,0,.04); }
+.living-feature img { width:100%; height:200px; object-fit:cover; display:block; }
+.living-feature-body { padding:24px; }
+.living-feature-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--forest); margin-bottom:8px; }
+.living-feature-desc { font-size:13px; color:var(--bark); line-height:1.7; }
+.seasons { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:40px; }
+.season-card { background:var(--white); border-radius:8px; padding:30px 24px; text-align:center; box-shadow:0 2px 15px rgba(0,0,0,.04); }
+.season-blooms { font-size:13px; color:var(--bark); line-height:1.7; }
+.banner-dark { background:linear-gradient(135deg,var(--forest) 0%,#3D4F35 100%); color:var(--cream); }
+.banner-dark .section-label { color:var(--gold-pale); }
+.banner-dark .section-title { color:var(--white); }
+.banner-dark .section-intro { color:var(--sage-light); }
+.tag-edible { background:#E8F0E4; color:var(--sage); }
+.intro-text p + p { margin-top:24px; }
+.care-card.care-rose { border-left-color:var(--rose); } .care-card.care-rose li::before { background:var(--rose-pale); }
+.care-card.care-fruit { border-left-color:var(--gold); } .care-card.care-fruit li::before { background:var(--gold-pale); }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover" id="top">
+  <div class="cover-content">
+    <div class="cover-botanical">
+      <img src="images/image1.png" alt="Peony">
+      <img src="images/image25.png" alt="Hydrangea">
+      <img src="images/image79.png" alt="Lady of Shalott Rose">
+      <img src="images/image4.png" alt="Japanese Maple">
+      <img src="images/image31.png" alt="Magnolia">
+      <img src="images/image67.png" alt="Fiji Rose">
+    </div>
+    <div class="cover-ornament">&bull; &bull; &bull;</div>
+    <h1>The <em>Garden</em></h1>
+    <p class="cover-subtitle">In-Depth Guide</p>
+    <div class="cover-stats">
+      <div class="cover-stat"><span class="cover-stat-number">100+</span><span class="cover-stat-label">Plants</span></div>
+      <div class="cover-stat"><span class="cover-stat-number">15+</span><span class="cover-stat-label">Rose Varieties</span></div>
+      <div class="cover-stat"><span class="cover-stat-number">8</span><span class="cover-stat-label">Fruit Trees</span></div>
+      <div class="cover-stat"><span class="cover-stat-number">4</span><span class="cover-stat-label">Seasons of Bloom</span></div>
+    </div>
+  </div>
+  <div class="cover-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Horizontal border below cover -->
+<div class="botanical-border"></div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">&larr; Back to Menu</a>
+    <a href="#top" class="nav-brand">The Garden</a>
+    <a href="#welcome">Welcome</a>
+    <a href="#map">Garden Map</a>
+    <a href="#roses">Roses</a>
+    <a href="#trees">Trees</a>
+    <a href="#hydrangeas">Hydrangeas</a>
+    <a href="#perennials">Perennials</a>
+    <a href="#fruit">Fruit &amp; Edibles</a>
+    <a href="#seasons">Seasons</a>
+    <a href="#living">Living</a>
+    <a href="#care">Care Guide</a>
+  </div>
+</nav>
+
+<!-- WELCOME -->
+<section class="section" id="welcome">
+  <div class="section-header">
+    <p class="section-label">Welcome</p>
+    <h2 class="section-title">A Garden Grown <em>with Love</em></h2>
+  </div>
+  <div class="intro-text">
+    <p>This garden has been lovingly cultivated over the years into something truly special &mdash; a living collection of over 100 carefully chosen plants, trees, and flowers from around the world. From award-winning English roses by David Austin to rare Japanese maples, from French climbing roses to productive fruit trees, every corner holds a surprise.</p>
+    <p>Many plants were selected for year-round interest: camellias bloom in early spring, peonies and roses fill the summer with colour and fragrance, chrysanthemums carry the garden through autumn, and the structural beauty of magnolias and maples shines through winter.</p>
+    <p>What follows is your guide to this extraordinary garden &mdash; a tour of its treasures, a map of its layout, and everything you need to continue its story.</p>
+  </div>
+
+  <div class="section-divider-ornament">
+    <img src="additional%20images/divider%20ornament.png" alt="decorative divider">
+  </div>
+
+  <!-- Photo Mosaic -->
+  <div class="mosaic">
+    <img src="images/image2.png" alt="Pink Peonies">
+    <img src="images/image79.png" alt="Lady of Shalott Rose">
+    <img src="images/image4.png" alt="Japanese Maple">
+    <img src="images/image25.png" alt="Hydrangea">
+    <img src="images/image54.png" alt="Fig Tree">
+  </div>
+</section>
+
+<!-- GARDEN MAP -->
+<div class="banner banner-sage" id="map">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Layout</p>
+      <h2 class="section-title">Garden <em>Map</em></h2>
+      <p class="section-intro">The garden surrounds the home on three sides, with distinct areas for roses, flowering trees, fruit trees, and vegetables. Numbers correspond to plant locations in the directory below.</p>
+    </div>
+    <div class="map-container">
+      <div class="map-svg-wrap">
+        <svg viewBox="0 0 600 1300" xmlns="http://www.w3.org/2000/svg" style="font-family:'Josefin Sans',sans-serif;">
+          <!-- Front garden -->
+          <rect x="0" y="0" width="600" height="300" rx="6" fill="#dce8d4"/>
+          <text x="300" y="22" text-anchor="middle" font-size="13" fill="#5C4A3A" letter-spacing="3" font-weight="400">FRONT GARDEN</text>
+          <rect x="82.8" y="25" width="38" height="275" rx="3" fill="#d5d0c8"/>
+          <text x="101.8" y="165" text-anchor="middle" font-size="9" fill="#8B7355" transform="rotate(-90,101.8,165)" letter-spacing="1">DRIVEWAY</text>
+          <!-- House -->
+          <rect x="0" y="300" width="600" height="70" fill="#b8b3ac"/>
+          <text x="300" y="342" text-anchor="middle" font-size="15" fill="#FFF" font-weight="500" letter-spacing="3">HOUSE</text>
+          <!-- Patio -->
+          <rect x="116.3" y="370" width="277.3" height="25" rx="2" fill="#cdc7be"/>
+          <text x="254.9" y="386" text-anchor="middle" font-size="8" fill="#8B7355" letter-spacing="1">PATIO</text>
+          <!-- Back garden -->
+          <rect x="0" y="395" width="600" height="905" rx="6" fill="#d4e2cc"/>
+          <text x="300" y="418" text-anchor="middle" font-size="13" fill="#5C4A3A" letter-spacing="3" font-weight="400">BACK GARDEN</text>
+
+          <!-- Plant markers -->
+          <g><circle cx="31.7" cy="47.5" r="11" fill="#D4A574"/><text x="31.7" y="50.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">1</text><title>Peony</title></g>
+          <g><circle cx="151.2" cy="48.7" r="11" fill="#D4A574"/><text x="151.2" y="51.7" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">2</text><title>Peony</title></g>
+          <g><circle cx="190.2" cy="48.7" r="11" fill="#C4737B"/><text x="190.2" y="51.7" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">3</text><title>"Easy on the Eyes" Rose</title></g>
+          <g><circle cx="190.2" cy="81.2" r="11" fill="#7A8B6F"/><text x="190.2" y="84.2" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">4</text><title>Japanese Maple</title></g>
+          <g><circle cx="154.1" cy="80.8" r="11" fill="#7A8B6F"/><text x="154.1" y="83.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">5</text><title>Gardenia</title></g>
+          <g><circle cx="310.5" cy="130.5" r="11" fill="#7A8B6F"/><text x="310.5" y="133.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">6</text><title>Dogwood</title></g>
+          <g><circle cx="162.2" cy="206.6" r="11" fill="#B8964E"/><text x="162.2" y="209.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">7</text><title>Pomegranate</title></g>
+          <g><circle cx="543.6" cy="106.8" r="11" fill="#7A8B6F"/><text x="543.6" y="109.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">8</text><title>Camellia</title></g>
+          <g><circle cx="543.6" cy="158.2" r="11" fill="#7A8B6F"/><text x="543.6" y="161.2" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">9</text><title>Camellia</title></g>
+          <g><circle cx="543.6" cy="209.5" r="11" fill="#7A8B6F"/><text x="543.6" y="212.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">10</text><title>Camellia</title></g>
+          <g><circle cx="542.3" cy="312.0" r="11" fill="#D4A574"/><text x="542.3" y="315.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">11</text><title>Dinnerplate Dahlia</title></g>
+          <g><circle cx="563.6" cy="312.0" r="11" fill="#7A8B6F"/><text x="563.6" y="315.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">12</text><title>Rose of Sharon &amp; Clematis</title></g>
+          <g><circle cx="540.7" cy="360.0" r="11" fill="#7A8B6F"/><text x="540.7" y="363.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">13</text><title>Gardenia</title></g>
+          <g><circle cx="568.8" cy="439.6" r="11" fill="#7A8B6F"/><text x="568.8" y="442.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">14</text><title>Camellia</title></g>
+          <g><circle cx="568.8" cy="528.3" r="11" fill="#7B93DB"/><text x="568.8" y="531.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">15</text><title>White Hydrangea</title></g>
+          <g><circle cx="568.8" cy="616.9" r="11" fill="#7B93DB"/><text x="568.8" y="619.9" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">16</text><title>Endless Summer Hydrangea</title></g>
+          <g><circle cx="568.8" cy="705.5" r="11" fill="#7A8B6F"/><text x="568.8" y="708.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">17</text><title>Double Purple Althea Rose of Sharon</title></g>
+          <g><circle cx="568.8" cy="794.2" r="11" fill="#7A8B6F"/><text x="568.8" y="797.2" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">18</text><title>Double Red Pink Althea Rose of Sharon</title></g>
+          <g><circle cx="568.8" cy="882.8" r="11" fill="#7B93DB"/><text x="568.8" y="885.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">19</text><title>Endless Summer Hydrangea</title></g>
+          <g><circle cx="568.8" cy="971.5" r="11" fill="#7B93DB"/><text x="568.8" y="974.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">20</text><title>Endless Summer Hydrangea</title></g>
+          <g><circle cx="532.5" cy="1076.3" r="11" fill="#7A8B6F"/><text x="532.5" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">21</text><title>Aphrodite Sweetshrub</title></g>
+          <g><circle cx="503.6" cy="1076.3" r="11" fill="#D4A574"/><text x="503.6" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">22</text><title>Peony</title></g>
+          <g><circle cx="474.7" cy="1076.3" r="11" fill="#D4A574"/><text x="474.7" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">23</text><title>Purple Passion Rhododendron</title></g>
+          <g><circle cx="445.8" cy="1076.3" r="11" fill="#7A8B6F"/><text x="445.8" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">24</text><title>Crape Myrtle</title></g>
+          <g><circle cx="416.9" cy="1076.3" r="11" fill="#D4A574"/><text x="416.9" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">25</text><title>Peony</title></g>
+          <g><circle cx="388.0" cy="1076.3" r="11" fill="#7A8B6F"/><text x="388.0" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">26</text><title>Crape Myrtle</title></g>
+          <g><circle cx="359.1" cy="1076.3" r="11" fill="#D4A574"/><text x="359.1" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">27</text><title>Peony</title></g>
+          <g><circle cx="551.0" cy="1137.5" r="11" fill="#C4737B"/><text x="551.0" y="1140.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">28</text><title>Climbing Rose</title></g>
+          <g><circle cx="503.5" cy="1137.5" r="11" fill="#7A8B6F"/><text x="503.5" y="1140.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">29</text><title>Purple Ann Magnolia</title></g>
+          <g><circle cx="456.1" cy="1137.5" r="11" fill="#7A8B6F"/><text x="456.1" y="1140.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">30</text><title>Southern Magnolia</title></g>
+          <g><circle cx="408.7" cy="1137.5" r="11" fill="#7B93DB"/><text x="408.7" y="1140.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">31</text><title>Deep Blue Hydrangea</title></g>
+          <g><circle cx="361.2" cy="1137.5" r="11" fill="#D4A574"/><text x="361.2" y="1140.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">32</text><title>Peony</title></g>
+          <g><circle cx="528.6" cy="1185.0" r="11" fill="#7A8B6F"/><text x="528.6" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">33</text><title>Rose of Sharon</title></g>
+          <g><circle cx="453.9" cy="1185.0" r="11" fill="#D4A574"/><text x="453.9" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">34</text><title>Purple Iris</title></g>
+          <g><circle cx="379.2" cy="1185.0" r="11" fill="#7A8B6F"/><text x="379.2" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">35</text><title>Rose of Sharon</title></g>
+          <g><circle cx="518.3" cy="400" r="11" fill="#C4737B"/><text x="518.3" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">36</text><title>Queen of Sweden Rose</title></g>
+          <g><circle cx="499.7" cy="400" r="11" fill="#C4737B"/><text x="499.7" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">37</text><title>Rose</title></g>
+          <g><circle cx="481.0" cy="400" r="11" fill="#C4737B"/><text x="481.0" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">38</text><title>Rose</title></g>
+          <g><circle cx="462.4" cy="400" r="11" fill="#7B93DB"/><text x="462.4" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">39</text><title>Endless Summer Hydrangea</title></g>
+          <g><circle cx="443.7" cy="400" r="11" fill="#C4737B"/><text x="443.7" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">40</text><title>Climbing Rose</title></g>
+          <g><circle cx="425.1" cy="400" r="11" fill="#7B93DB"/><text x="425.1" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">41</text><title>Moon Dance Hydrangea</title></g>
+          <g><circle cx="406.4" cy="400" r="11" fill="#7A8B6F"/><text x="406.4" y="403" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">42</text><title>Rose of Sharon</title></g>
+          <g><circle cx="345.5" cy="557.4" r="11" fill="#D4A574"/><text x="345.5" y="560.4" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">43</text><title>Pink Chrysanthemum</title></g>
+          <g><circle cx="345.5" cy="615.4" r="11" fill="#7A8B6F"/><text x="345.5" y="618.4" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">44</text><title>Gardenia</title></g>
+          <g><circle cx="272.3" cy="405.8" r="11" fill="#8BC48A"/><text x="272.3" y="408.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">45</text><title>Rosemary</title></g>
+          <g><circle cx="301.2" cy="405.8" r="11" fill="#C4737B"/><text x="301.2" y="408.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">46</text><title>Michelangelo Rose &amp; Clematis</title></g>
+          <g><circle cx="330.1" cy="405.8" r="11" fill="#C4737B"/><text x="330.1" y="408.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">47</text><title>Michelangelo Rose</title></g>
+          <g><circle cx="50.9" cy="386" r="11" fill="#C4737B"/><text x="50.9" y="389" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">48</text><title>Rose Eden &amp; Clematis</title></g>
+          <g><circle cx="21.4" cy="397.2" r="11" fill="#B8964E"/><text x="21.4" y="400.2" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">49</text><title>Jujube Date Fruit Tree</title></g>
+          <g><circle cx="274.6" cy="599.3" r="11" fill="#8BC48A"/><text x="274.6" y="602.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">50</text><title>Chinese Chives</title></g>
+          <g><circle cx="274.6" cy="675.1" r="11" fill="#C4737B"/><text x="274.6" y="678.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">51</text><title>Distant Drum Rose</title></g>
+          <g><circle cx="274.6" cy="750.9" r="11" fill="#C4737B"/><text x="274.6" y="753.9" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">52</text><title>Olivia Rose Austin</title></g>
+          <g><circle cx="274.6" cy="826.7" r="11" fill="#C4737B"/><text x="274.6" y="829.7" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">53</text><title>Dee-Lish Rose</title></g>
+          <g><circle cx="274.6" cy="902.5" r="11" fill="#C4737B"/><text x="274.6" y="905.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">54</text><title>Princess Alexandra</title></g>
+          <g><circle cx="274.6" cy="978.3" r="11" fill="#C4737B"/><text x="274.6" y="981.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">55</text><title>Leonardo Da Vinci Rose</title></g>
+          <g><circle cx="274.6" cy="1054.1" r="11" fill="#C4737B"/><text x="274.6" y="1057.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">56</text><title>Michelangelo Rose</title></g>
+          <g><circle cx="232.3" cy="1075.6" r="11" fill="#7B93DB"/><text x="232.3" y="1078.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">57</text><title>Endless Summer Hydrangea</title></g>
+          <g><circle cx="119.3" cy="1076.3" r="11" fill="#B8964E"/><text x="119.3" y="1079.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">58</text><title>Fig Trees</title></g>
+          <g><circle cx="196.3" cy="991.2" r="11" fill="#B8964E"/><text x="196.3" y="994.2" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">59</text><title>Jujube Date</title></g>
+          <g><circle cx="126.3" cy="986.4" r="11" fill="#B8964E"/><text x="126.3" y="989.4" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">60</text><title>Honeycrisp Apple</title></g>
+          <g><circle cx="31.9" cy="975.8" r="11" fill="#B8964E"/><text x="31.9" y="978.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">61</text><title>Hachiya Persimmon</title></g>
+          <g><circle cx="24.2" cy="744.8" r="11" fill="#B8964E"/><text x="24.2" y="747.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">62</text><title>Fuyu Persimmon</title></g>
+          <g><circle cx="15.5" cy="585.6" r="11" fill="#C4737B"/><text x="15.5" y="588.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">63</text><title>Rose (UK)</title></g>
+          <g><circle cx="15.5" cy="549.6" r="11" fill="#7A8B6F"/><text x="15.5" y="552.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">64</text><title>Weigela</title></g>
+          <g><circle cx="18.8" cy="481.8" r="11" fill="#D4A574"/><text x="18.8" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">65</text><title>Siberian Iris</title></g>
+          <g><circle cx="36.5" cy="481.8" r="11" fill="#C4737B"/><text x="36.5" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">66</text><title>Double Delight Rose</title></g>
+          <g><circle cx="58.4" cy="481.8" r="11" fill="#D4A574"/><text x="58.4" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">67</text><title>Peony</title></g>
+          <g><circle cx="80.4" cy="481.8" r="11" fill="#C4737B"/><text x="80.4" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">68</text><title>Iceberg Rose</title></g>
+          <g><circle cx="102.3" cy="481.8" r="11" fill="#D4A574"/><text x="102.3" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">69</text><title>Peony</title></g>
+          <g><circle cx="124.3" cy="481.8" r="11" fill="#D4A574"/><text x="124.3" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">70</text><title>Peony Tree</title></g>
+          <g><circle cx="146.2" cy="481.8" r="11" fill="#C4737B"/><text x="146.2" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">71</text><title>Fiji Rose</title></g>
+          <g><circle cx="168.2" cy="481.8" r="11" fill="#C4737B"/><text x="168.2" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">72</text><title>Rose (UK)</title></g>
+          <g><circle cx="190.1" cy="481.8" r="11" fill="#C4737B"/><text x="190.1" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">73</text><title>Miniature Rose Tree</title></g>
+          <g><circle cx="212.1" cy="481.8" r="11" fill="#D4A574"/><text x="212.1" y="484.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">74</text><title>Peony</title></g>
+          <g><circle cx="34.9" cy="546.0" r="11" fill="#7B93DB"/><text x="34.9" y="549.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">75</text><title>Deep Blue Hydrangea</title></g>
+          <g><circle cx="68.9" cy="593.3" r="11" fill="#C4737B"/><text x="68.9" y="596.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">76</text><title>Princess Anne Rose</title></g>
+          <g><circle cx="103.1" cy="593.3" r="11" fill="#C4737B"/><text x="103.1" y="596.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">77</text><title>Laguna Rose</title></g>
+          <g><circle cx="137.3" cy="593.3" r="11" fill="#D4A574"/><text x="137.3" y="596.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">78</text><title>Bleeding Heart</title></g>
+          <g><circle cx="171.4" cy="593.3" r="11" fill="#C4737B"/><text x="171.4" y="596.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">79</text><title>Eden Climber Rose</title></g>
+          <g><circle cx="205.6" cy="593.3" r="11" fill="#D4A574"/><text x="205.6" y="596.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">80</text><title>Short Dahlia</title></g>
+          <g><circle cx="68.9" cy="721.1" r="11" fill="#D4A574"/><text x="68.9" y="724.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">81</text><title>Chrysanthemum</title></g>
+          <g><circle cx="103.1" cy="721.1" r="11" fill="#C4737B"/><text x="103.1" y="724.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">82</text><title>Rose (UK)</title></g>
+          <g><circle cx="137.3" cy="721.1" r="11" fill="#C4737B"/><text x="137.3" y="724.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">83</text><title>White Rose</title></g>
+          <g><circle cx="171.4" cy="721.1" r="11" fill="#C4737B"/><text x="171.4" y="724.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">84</text><title>Rose (UK)</title></g>
+          <g><circle cx="205.6" cy="721.1" r="11" fill="#7A8B6F"/><text x="205.6" y="724.1" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">85</text><title>Peony Tree</title></g>
+          <g><circle cx="72.4" cy="869.8" r="11" fill="#C4737B"/><text x="72.4" y="872.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">86</text><title>Lady of Shalott</title></g>
+          <g><circle cx="115.4" cy="869.8" r="11" fill="#7B93DB"/><text x="115.4" y="872.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">87</text><title>Moon Dance Hydrangea</title></g>
+          <g><circle cx="158.4" cy="869.8" r="11" fill="#C4737B"/><text x="158.4" y="872.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">88</text><title>Rose (UK)</title></g>
+          <g><circle cx="201.5" cy="869.8" r="11" fill="#C4737B"/><text x="201.5" y="872.8" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">89</text><title>Lady of Shalott</title></g>
+          <g><circle cx="32.6" cy="1185.0" r="11" fill="#C4737B"/><text x="32.6" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">90</text><title>Climbing Rose</title></g>
+          <g><circle cx="68.2" cy="1185.0" r="11" fill="#7A8B6F"/><text x="68.2" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">91</text><title>Chinese Redbud</title></g>
+          <g><circle cx="103.9" cy="1185.0" r="11" fill="#B8964E"/><text x="103.9" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">92</text><title>Apricot</title></g>
+          <g><circle cx="139.5" cy="1185.0" r="11" fill="#8BC48A"/><text x="139.5" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">93</text><title>Chinese Toon</title></g>
+          <g><circle cx="175.1" cy="1185.0" r="11" fill="#B8964E"/><text x="175.1" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">94</text><title>Pear Tree</title></g>
+          <g><circle cx="210.7" cy="1185.0" r="11" fill="#C4737B"/><text x="210.7" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">95</text><title>Roses</title></g>
+          <g><circle cx="246.3" cy="1185.0" r="11" fill="#7B93DB"/><text x="246.3" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">96</text><title>White Hydrangea</title></g>
+          <g><circle cx="282.0" cy="1185.0" r="11" fill="#7A8B6F"/><text x="282.0" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">97</text><title>Rose of Sharon</title></g>
+          <g><circle cx="317.6" cy="1185.0" r="11" fill="#7A8B6F"/><text x="317.6" y="1188.0" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">98</text><title>Flower Tree</title></g>
+          <g><circle cx="20.8" cy="617.3" r="11" fill="#7A8B6F"/><text x="20.8" y="620.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">99</text><title>White Tea Tree</title></g>
+          <g><circle cx="34.5" cy="617.3" r="11" fill="#7A8B6F"/><text x="34.5" y="620.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">100</text><title>Red Tea Tree</title></g>
+          <g><circle cx="122.7" cy="1026.3" r="11" fill="#8BC48A"/><text x="122.7" y="1029.3" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">101</text><title>Reserved</title></g>
+          <g><circle cx="274.4" cy="508.6" r="11" fill="#8BC48A"/><text x="274.4" y="511.6" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">102</text><title>Vegetable Beds</title></g>
+          <g><circle cx="15.5" cy="513.5" r="11" fill="#D4A574"/><text x="15.5" y="516.5" text-anchor="middle" font-size="9" font-weight="600" fill="#FFF">103</text><title>Bleeding Heart</title></g>
+        </svg>
+      </div>
+      <div class="map-legend">
+        <div class="map-legend-item"><span class="map-legend-dot" style="background:#C4737B"></span> Roses</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background:#7A8B6F"></span> Trees &amp; Shrubs</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background:#7B93DB"></span> Hydrangeas</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background:#B8964E"></span> Fruit Trees</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background:#D4A574"></span> Perennials</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background:#8BC48A"></span> Edibles</div>
+      </div>
+
+      <!-- Plant Directory -->
+      <div class="map-reference">
+        <h3>Plant Directory</h3>
+        <div class="map-ref-grid">
+
+          <div class="map-ref-group ref-roses">
+            <h4>Roses</h4>
+            <div class="map-ref-item"><span class="map-ref-num">3</span> "Easy on the Eyes" Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">28</span> Climbing Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">36</span> Queen of Sweden Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">37</span> Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">38</span> Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">40</span> Climbing Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">46</span> Michelangelo Rose &amp; Clematis</div>
+            <div class="map-ref-item"><span class="map-ref-num">47</span> Michelangelo Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">48</span> Rose Eden &amp; Clematis</div>
+            <div class="map-ref-item"><span class="map-ref-num">51</span> Distant Drum Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">52</span> Olivia Rose Austin</div>
+            <div class="map-ref-item"><span class="map-ref-num">53</span> Dee-Lish Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">54</span> Princess Alexandra</div>
+            <div class="map-ref-item"><span class="map-ref-num">55</span> Leonardo Da Vinci Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">56</span> Michelangelo Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">63</span> Rose (UK)</div>
+            <div class="map-ref-item"><span class="map-ref-num">66</span> Double Delight Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">68</span> Iceberg Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">71</span> Fiji Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">72</span> Rose (UK)</div>
+            <div class="map-ref-item"><span class="map-ref-num">73</span> Miniature Rose Tree</div>
+            <div class="map-ref-item"><span class="map-ref-num">76</span> Princess Anne Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">77</span> Laguna Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">79</span> Eden Climber Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">82</span> Rose (UK)</div>
+            <div class="map-ref-item"><span class="map-ref-num">83</span> White Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">84</span> Rose (UK)</div>
+            <div class="map-ref-item"><span class="map-ref-num">86</span> Lady of Shalott</div>
+            <div class="map-ref-item"><span class="map-ref-num">88</span> Rose (UK)</div>
+            <div class="map-ref-item"><span class="map-ref-num">89</span> Lady of Shalott</div>
+            <div class="map-ref-item"><span class="map-ref-num">90</span> Climbing Rose</div>
+            <div class="map-ref-item"><span class="map-ref-num">95</span> Roses</div>
+          </div>
+
+          <div class="map-ref-group ref-trees">
+            <h4>Trees &amp; Shrubs</h4>
+            <div class="map-ref-item"><span class="map-ref-num">4</span> Japanese Maple</div>
+            <div class="map-ref-item"><span class="map-ref-num">5</span> Gardenia</div>
+            <div class="map-ref-item"><span class="map-ref-num">6</span> Dogwood</div>
+            <div class="map-ref-item"><span class="map-ref-num">8</span> Camellia</div>
+            <div class="map-ref-item"><span class="map-ref-num">9</span> Camellia</div>
+            <div class="map-ref-item"><span class="map-ref-num">10</span> Camellia</div>
+            <div class="map-ref-item"><span class="map-ref-num">12</span> Rose of Sharon &amp; Clematis</div>
+            <div class="map-ref-item"><span class="map-ref-num">13</span> Gardenia</div>
+            <div class="map-ref-item"><span class="map-ref-num">14</span> Camellia</div>
+            <div class="map-ref-item"><span class="map-ref-num">17</span> Double Purple Althea Rose of Sharon</div>
+            <div class="map-ref-item"><span class="map-ref-num">18</span> Double Red Pink Althea Rose of Sharon</div>
+            <div class="map-ref-item"><span class="map-ref-num">21</span> Aphrodite Sweetshrub</div>
+            <div class="map-ref-item"><span class="map-ref-num">24</span> Crape Myrtle</div>
+            <div class="map-ref-item"><span class="map-ref-num">26</span> Crape Myrtle</div>
+            <div class="map-ref-item"><span class="map-ref-num">29</span> Purple Ann Magnolia</div>
+            <div class="map-ref-item"><span class="map-ref-num">30</span> Southern Magnolia</div>
+            <div class="map-ref-item"><span class="map-ref-num">33</span> Rose of Sharon</div>
+            <div class="map-ref-item"><span class="map-ref-num">35</span> Rose of Sharon</div>
+            <div class="map-ref-item"><span class="map-ref-num">42</span> Rose of Sharon</div>
+            <div class="map-ref-item"><span class="map-ref-num">44</span> Gardenia</div>
+            <div class="map-ref-item"><span class="map-ref-num">64</span> Weigela</div>
+            <div class="map-ref-item"><span class="map-ref-num">85</span> Peony Tree</div>
+            <div class="map-ref-item"><span class="map-ref-num">91</span> Chinese Redbud</div>
+            <div class="map-ref-item"><span class="map-ref-num">97</span> Rose of Sharon</div>
+            <div class="map-ref-item"><span class="map-ref-num">98</span> Flower Tree</div>
+            <div class="map-ref-item"><span class="map-ref-num">99</span> White Tea Tree</div>
+            <div class="map-ref-item"><span class="map-ref-num">100</span> Red Tea Tree</div>
+          </div>
+
+          <div class="map-ref-group ref-hydrangeas">
+            <h4>Hydrangeas</h4>
+            <div class="map-ref-item"><span class="map-ref-num">15</span> White Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">16</span> Endless Summer Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">19</span> Endless Summer Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">20</span> Endless Summer Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">31</span> Deep Blue Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">39</span> Endless Summer Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">41</span> Moon Dance Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">57</span> Endless Summer Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">75</span> Deep Blue Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">87</span> Moon Dance Hydrangea</div>
+            <div class="map-ref-item"><span class="map-ref-num">96</span> White Hydrangea</div>
+          </div>
+
+          <div class="map-ref-group ref-fruit">
+            <h4>Fruit Trees</h4>
+            <div class="map-ref-item"><span class="map-ref-num">7</span> Pomegranate</div>
+            <div class="map-ref-item"><span class="map-ref-num">49</span> Jujube Date Fruit Tree</div>
+            <div class="map-ref-item"><span class="map-ref-num">58</span> Fig Trees</div>
+            <div class="map-ref-item"><span class="map-ref-num">59</span> Jujube Date</div>
+            <div class="map-ref-item"><span class="map-ref-num">60</span> Honeycrisp Apple</div>
+            <div class="map-ref-item"><span class="map-ref-num">61</span> Hachiya Persimmon</div>
+            <div class="map-ref-item"><span class="map-ref-num">62</span> Fuyu Persimmon</div>
+            <div class="map-ref-item"><span class="map-ref-num">92</span> Apricot</div>
+            <div class="map-ref-item"><span class="map-ref-num">94</span> Pear Tree</div>
+          </div>
+
+          <div class="map-ref-group ref-perennials">
+            <h4>Perennials</h4>
+            <div class="map-ref-item"><span class="map-ref-num">1</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">2</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">11</span> Dinnerplate Dahlia</div>
+            <div class="map-ref-item"><span class="map-ref-num">22</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">23</span> Purple Passion Rhododendron</div>
+            <div class="map-ref-item"><span class="map-ref-num">25</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">27</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">32</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">34</span> Purple Iris</div>
+            <div class="map-ref-item"><span class="map-ref-num">43</span> Pink Chrysanthemum</div>
+            <div class="map-ref-item"><span class="map-ref-num">65</span> Siberian Iris</div>
+            <div class="map-ref-item"><span class="map-ref-num">67</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">69</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">70</span> Peony Tree</div>
+            <div class="map-ref-item"><span class="map-ref-num">74</span> Peony</div>
+            <div class="map-ref-item"><span class="map-ref-num">78</span> Bleeding Heart</div>
+            <div class="map-ref-item"><span class="map-ref-num">80</span> Short Dahlia</div>
+            <div class="map-ref-item"><span class="map-ref-num">81</span> Chrysanthemum</div>
+            <div class="map-ref-item"><span class="map-ref-num">103</span> Bleeding Heart</div>
+          </div>
+
+          <div class="map-ref-group ref-edibles">
+            <h4>Edibles &amp; Herbs</h4>
+            <div class="map-ref-item"><span class="map-ref-num">45</span> Rosemary</div>
+            <div class="map-ref-item"><span class="map-ref-num">50</span> Chinese Chives</div>
+            <div class="map-ref-item"><span class="map-ref-num">93</span> Chinese Toon</div>
+            <div class="map-ref-item"><span class="map-ref-num">101</span> Reserved</div>
+            <div class="map-ref-item"><span class="map-ref-num">102</span> Vegetable Beds</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ROSES -->
+<section class="section" id="roses">
+  <div class="section-header">
+    <p class="section-label">The Rose Collection</p>
+    <h2 class="section-title">Over Thirty <em>Rose Varieties</em></h2>
+    <p class="section-intro">A world-class collection featuring celebrated cultivars from David Austin (England), Meilland (France), and Kordes (Germany). From climbing roses adorning fences to compact bush roses lining walkways.</p>
+  </div>
+
+  <!-- Rose on fence hero banner -->
+  <div class="rose-hero-banner">
+    <img src="additional%20images/rose%20on%20fence.jpeg" alt="Roses climbing along the garden fence">
+  </div>
+
+  <!-- Featured: Eden Climber -->
+  <div class="featured">
+    <img src="images/image71.png" alt="Eden Climber Rose" class="featured-img">
+    <div class="featured-content">
+      <p class="featured-label">Featured &mdash; From France</p>
+      <h3 class="featured-name">"Eden Climber" Rose</h3>
+      <p class="featured-desc">One of the most beloved climbing roses in the world, the Eden Climber (also known as Pierre de Ronsard) produces exquisite, old-world double blooms in shades of cream and pink. This specimen graces the garden fence, creating a romantic backdrop that intensifies each year as the canes mature.</p>
+      <span class="plant-card-tag tag-rose">Climbing Rose &mdash; France</span>
+    </div>
+  </div>
+
+  <!-- Featured: Lady of Shalott -->
+  <div class="featured reverse">
+    <img src="images/image79.png" alt="Lady of Shalott Rose" class="featured-img">
+    <div class="featured-content">
+      <p class="featured-label">Featured &mdash; David Austin, England</p>
+      <h3 class="featured-name">Lady of Shalott</h3>
+      <p class="featured-desc">Named after Tennyson's poem, this David Austin English rose produces chalice-shaped blooms in rich, warm salmon-orange tones. Hardy and reliable, it can stand direct sun and produces one of the most generous flushes of bloom in the garden. Two specimens are planted for maximum impact.</p>
+      <span class="plant-card-tag tag-rose">English Rose &mdash; Sun Tolerant</span>
+    </div>
+  </div>
+
+  <!-- Rose Grid -->
+  <div class="plant-grid">
+    <div class="plant-card">
+      <img src="images/image36.png" alt="Queen of Sweden Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Queen of Sweden" Rose</h3>
+        <p class="plant-card-origin">David Austin &mdash; England</p>
+        <p class="plant-card-desc">Elegant, cup-shaped soft pink blooms on upright stems. One of David Austin's most refined creations.</p>
+        <span class="plant-card-tag tag-rose">English Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image48.png" alt="Olivia Rose Austin" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Olivia Rose Austin"</h3>
+        <p class="plant-card-origin">David Austin &mdash; England</p>
+        <p class="plant-card-desc">Named after David Austin's granddaughter. Beautifully cupped rosette blooms with a fruity fragrance.</p>
+        <span class="plant-card-tag tag-rose">English Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image51.png" alt="Princess Alexandra of Kent" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Princess Alexandra of Kent"</h3>
+        <p class="plant-card-origin">David Austin &mdash; England</p>
+        <p class="plant-card-desc">Exceptionally large, deeply cupped blooms in warm glowing pink with a rich tea fragrance.</p>
+        <span class="plant-card-tag tag-rose">English Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image70.png" alt="Princess Anne Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Princess Anne Rose</h3>
+        <p class="plant-card-origin">David Austin &mdash; England</p>
+        <p class="plant-card-desc">Deep pink, almost red, with an unusually attractive full-petalled rosette form. A climbing variety.</p>
+        <span class="plant-card-tag tag-rose">Climbing Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image52.png" alt="Leonardo Da Vinci Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Leonardo Da Vinci" Rose</h3>
+        <p class="plant-card-origin">Meilland &mdash; France</p>
+        <p class="plant-card-desc">Quartered, deeply pink old-fashioned blooms with outstanding disease resistance. A French masterpiece.</p>
+        <span class="plant-card-tag tag-rose">French Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image53.png" alt="Michelangelo Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Michelangelo Rose &amp; Clematis</h3>
+        <p class="plant-card-origin">Meilland &mdash; France</p>
+        <p class="plant-card-desc">A French rose paired with clematis for a stunning climbing combination along the garden structure.</p>
+        <span class="plant-card-tag tag-rose">French Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image20.png" alt="Dee-Lish Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Dee-Lish" Rose</h3>
+        <p class="plant-card-origin">France</p>
+        <p class="plant-card-desc">Exquisitely fragrant with classic hybrid tea form. A favourite for cut flower arrangements.</p>
+        <span class="plant-card-tag tag-rose">French Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image67.png" alt="Fiji Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Fiji Rose</h3>
+        <p class="plant-card-origin">Kordes &mdash; Germany</p>
+        <p class="plant-card-desc">A German-bred hybrid tea rose with vibrant colour and strong, upright growth habit.</p>
+        <span class="plant-card-tag tag-rose">German Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image49.png" alt="Distant Drum Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Distant Drum" Rose</h3>
+        <p class="plant-card-origin">Buck &mdash; USA</p>
+        <p class="plant-card-desc">Unusual mauve-tan blooms that shift colour through the day. A true conversation piece.</p>
+        <span class="plant-card-tag tag-rose">Hybrid Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image63.png" alt="Double Delight Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Double Delight Hybrid Tea Rose</h3>
+        <p class="plant-card-origin">Swim &amp; Ellis</p>
+        <p class="plant-card-desc">Cream centre brushed with strawberry red. World Rose Hall of Fame member. Intensely fragrant.</p>
+        <span class="plant-card-tag tag-rose">Hybrid Tea</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image65.png" alt="Iceberg White Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Iceberg White Rose</h3>
+        <p class="plant-card-origin">Kordes &mdash; Germany</p>
+        <p class="plant-card-desc">The world's most popular white floribunda. Masses of pure white blooms throughout the season.</p>
+        <span class="plant-card-tag tag-rose">Floribunda</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image44.png" alt="Pink Rose Eden and Clematis" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Pink "Rose Eden" &amp; Clematis</h3>
+        <p class="plant-card-origin">Meilland &mdash; France</p>
+        <p class="plant-card-desc">A romantic climbing rose from France, paired with clematis for a layered vertical display.</p>
+        <span class="plant-card-tag tag-rose">Climbing &mdash; France</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image74.png" alt="Laguna Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Laguna Rose</h3>
+        <p class="plant-card-origin">Kordes &mdash; Germany</p>
+        <p class="plant-card-desc">A climbing rose with deep pink, heavily fragrant double blooms. Disease-resistant and vigorous.</p>
+        <span class="plant-card-tag tag-rose">Climbing Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image3.png" alt="Easy on the Eyes Rose" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Easy on the Eyes" Rose</h3>
+        <p class="plant-card-origin">Rose Bush</p>
+        <p class="plant-card-desc">A charming, easy-care rose bush that lives up to its name with abundant, attractive blooms.</p>
+        <span class="plant-card-tag tag-rose">Bush Rose</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image69.png" alt="Miniature Rose Tree" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Miniature Rose Tree</h3>
+        <p class="plant-card-origin">Standard</p>
+        <p class="plant-card-desc">A tree-form miniature rose adding vertical elegance and structure to the garden beds.</p>
+        <span class="plant-card-tag tag-rose">Tree Rose</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider ornament between Roses and Trees -->
+<div class="section-divider-ornament">
+  <img src="additional%20images/divider%20ornament.png" alt="decorative divider">
+</div>
+
+<!-- FLOWERING TREES -->
+<div class="banner banner-dark" id="trees">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Flowering Trees &amp; Ornamentals</p>
+      <h2 class="section-title">Statement <em>Trees</em></h2>
+      <p class="section-intro">From the graceful Japanese Maple to dramatic Magnolias, these trees form the garden's living architecture &mdash; providing structure, shade, and spectacular seasonal displays.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <!-- Featured: Japanese Maple -->
+  <div class="featured">
+    <img src="images/image4.png" alt="Japanese Maple" class="featured-img">
+    <div class="featured-content">
+      <p class="featured-label">Ornamental Centrepiece</p>
+      <h3 class="featured-name">Japanese Maple</h3>
+      <p class="featured-desc">A stunning specimen displaying both green and red foliage colours. Japanese Maples are prized worldwide for their elegant, layered branching habit and extraordinary autumn colour. This tree becomes the garden's focal point in every season.</p>
+      <span class="plant-card-tag tag-tree">Ornamental Tree</span>
+    </div>
+  </div>
+
+  <div class="plant-grid">
+    <div class="plant-card">
+      <img src="images/image31.png" alt="Purple Ann Magnolia" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Purple Ann Magnolia Tree</h3>
+        <p class="plant-card-desc">Dramatic purple-pink goblet blooms appear on bare branches in early spring, creating a breathtaking display.</p>
+        <span class="plant-card-tag tag-tree">Magnolia</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image32.png" alt="Southern White Magnolia" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Southern White Magnolia Tree</h3>
+        <p class="plant-card-desc">The classic magnolia with enormous, fragrant white blooms and glossy evergreen leaves. A true Southern icon.</p>
+        <span class="plant-card-tag tag-tree">Magnolia</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image5.png" alt="Greensleeves Dogwood" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Greensleeves Dogwood Tree</h3>
+        <p class="plant-card-desc">An elegant ornamental with layered branching, spring flowers, and rich autumn colour.</p>
+        <span class="plant-card-tag tag-tree">Dogwood</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image29.png" alt="Crape Myrtle" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Crape Myrtle Tree</h3>
+        <p class="plant-card-desc">Summer-flowering tree with clusters of crinkled blooms and attractive peeling bark. A warm-climate favourite.</p>
+        <span class="plant-card-tag tag-tree">Flowering Tree</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image84.png" alt="Chinese Redbud" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Chinese Redbud Tree</h3>
+        <p class="plant-card-desc">Covered in clusters of brilliant pink-purple flowers in early spring before the heart-shaped leaves appear.</p>
+        <span class="plant-card-tag tag-tree">Flowering Tree</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image27.png" alt="Aphrodite Sweetshrub" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Aphrodite Sweetshrub Calycanthus</h3>
+        <p class="plant-card-desc">An unusual native shrub with sweetly fragrant, burgundy-red flowers. A garden rarity.</p>
+        <span class="plant-card-tag tag-tree">Native Shrub</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image60.png" alt="Weigela Florida" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Weigela Florida</h3>
+        <p class="plant-card-desc">Trumpet-shaped pink flowers attract hummingbirds in late spring. A carefree, showy shrub.</p>
+        <span class="plant-card-tag tag-tree">Flowering Shrub</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image33.png" alt="Rose of Sharon" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Rose of Sharon (Althea)</h3>
+        <p class="plant-card-desc">Multiple specimens in both double red-pink and double purple varieties line the back of the garden, with clematis companions.</p>
+        <span class="plant-card-tag tag-tree">Flowering Tree</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider ornament between Trees and Camellias -->
+<div class="section-divider-ornament">
+  <img src="additional%20images/divider%20ornament.png" alt="decorative divider">
+</div>
+
+<!-- CAMELLIAS & TEA TREES -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Early Spring Treasures</p>
+    <h2 class="section-title">Camellias &amp; <em>Tea Trees</em></h2>
+    <p class="section-intro">The garden features an impressive collection of camellia tea trees that bloom in March, bringing colour when most gardens are still dormant. Several varieties ensure weeks of overlapping bloom.</p>
+  </div>
+
+  <div class="plant-grid">
+    <div class="plant-card">
+      <img src="images/image9.png" alt="Camellia Tea Tree" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Camellia Tea Tree</h3>
+        <p class="plant-card-desc">Multiple specimens throughout the garden. Flowers in March, providing the first burst of spring colour.</p>
+        <span class="plant-card-tag tag-tree">Blooms March</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image24.png" alt="Debutante Camellia" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Debutante Camellia Tea Tree</h3>
+        <p class="plant-card-desc">A classic camellia variety prized for its delicate, layered peony-form pink blooms.</p>
+        <span class="plant-card-tag tag-tree">Blooms March</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image6.png" alt="Gardenia" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Gardenia Trees</h3>
+        <p class="plant-card-desc">Several gardenia trees throughout the garden fill the air with their iconic, intoxicating fragrance. Pure white blooms.</p>
+        <span class="plant-card-tag tag-tree">Fragrant</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image100.png" alt="White Tea Tree in Pot" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Potted Tea Trees</h3>
+        <p class="plant-card-desc">White and red tea trees in pots add portable elegance to patios and can be moved for optimal sun exposure.</p>
+        <span class="plant-card-tag tag-tree">Container Plants</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HYDRANGEAS -->
+<div class="banner banner-rose" id="hydrangeas">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Summer Showstoppers</p>
+      <h2 class="section-title">The <em>Hydrangea</em> Collection</h2>
+      <p class="section-intro">From deep blue to pristine white, the garden's hydrangeas create billowing drifts of colour that last from early summer well into autumn.</p>
+    </div>
+
+    <div class="plant-grid">
+      <div class="plant-card">
+        <img src="images/image25.png" alt="Endless Summer Hydrangea" class="plant-card-img">
+        <div class="plant-card-body">
+          <h3 class="plant-card-name">Endless Summer Hydrangea</h3>
+          <p class="plant-card-desc">Multiple specimens planted throughout. True to their name, they rebloom continuously from summer through autumn.</p>
+          <span class="plant-card-tag tag-perennial">Reblooming</span>
+        </div>
+      </div>
+
+      <div class="plant-card">
+        <img src="images/image18.png" alt="Deep Blue Hydrangea" class="plant-card-img">
+        <div class="plant-card-body">
+          <h3 class="plant-card-name">Deep Blue Hydrangea</h3>
+          <p class="plant-card-desc">Planted in 2025, these will grow into large, spectacular bushes with intensely coloured mophead blooms.</p>
+          <span class="plant-card-tag tag-perennial">Establishing</span>
+        </div>
+      </div>
+
+      <div class="plant-card">
+        <img src="images/image39.png" alt="Moon Dance Hydrangea" class="plant-card-img">
+        <div class="plant-card-body">
+          <h3 class="plant-card-name">Moon Dance Hydrangea</h3>
+          <p class="plant-card-desc">Pristine white lacecap blooms that seem to glow in moonlight. A sophisticated, elegant variety.</p>
+          <span class="plant-card-tag tag-perennial">White Variety</span>
+        </div>
+      </div>
+
+      <div class="plant-card">
+        <img src="images/image22.png" alt="White Hydrangea" class="plant-card-img">
+        <div class="plant-card-body">
+          <h3 class="plant-card-name">Hydrangea White</h3>
+          <p class="plant-card-desc">Classic white mophead hydrangeas adding luminous brightness to shaded garden corners.</p>
+          <span class="plant-card-tag tag-perennial">Shade Tolerant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PERENNIALS -->
+<section class="section" id="perennials">
+  <div class="section-header">
+    <p class="section-label">Faithful Returnees</p>
+    <h2 class="section-title">Perennials &amp; <em>Garden Gems</em></h2>
+    <p class="section-intro">These plants return faithfully each year, growing more beautiful with time. The peonies alone are worth the visit &mdash; with specimens planted in multiple locations for maximum impact.</p>
+  </div>
+
+  <!-- Featured: Peony -->
+  <div class="featured reverse">
+    <img src="images/image1.png" alt="Peony" class="featured-img">
+    <div class="featured-content">
+      <p class="featured-label">Garden Favourite</p>
+      <h3 class="featured-name">Peonies</h3>
+      <p class="featured-desc">The garden features an extraordinary number of peonies &mdash; both herbaceous varieties that return each spring and tree peonies that grow larger year after year, eventually becoming small trees that flower in March and April. Their extravagant, fragrant blooms are a highlight of the spring garden.</p>
+      <span class="plant-card-tag tag-perennial">Perennial &mdash; 10+ Specimens</span>
+    </div>
+  </div>
+
+  <div class="plant-grid">
+    <div class="plant-card">
+      <img src="images/image2.png" alt="Pink Peony" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Peony (Pink Double)</h3>
+        <p class="plant-card-desc">Lush, double pink blooms that are garden royalty. Come back reliably every year, growing more robust with time.</p>
+        <span class="plant-card-tag tag-perennial">Perennial</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image66.png" alt="Peony Tree" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Peony Tree</h3>
+        <p class="plant-card-desc">Unlike herbaceous peonies, tree peonies keep their woody structure year-round and grow bigger each year. Flowers in March.</p>
+        <span class="plant-card-tag tag-perennial">Tree Peony</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image34.png" alt="Purple Iris" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Purple Iris &amp; Siberian Iris</h3>
+        <p class="plant-card-desc">Several iris varieties in the back garden, complemented by strawberry plants nearby. Behind the fence: apricot tree, climbing roses, and honeysuckle.</p>
+        <span class="plant-card-tag tag-perennial">Perennial</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image13.png" alt="Giant Dinnerplate Dahlia" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Giant Dinnerplate Dahlia</h3>
+        <p class="plant-card-desc">Enormous blooms the size of dinner plates &mdash; a true showstopper. Returns each year with even more vigour.</p>
+        <span class="plant-card-tag tag-perennial">Perennial</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image73.png" alt="Asian Bleeding Heart" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">"Asian Bleeding Heart"</h3>
+        <p class="plant-card-origin">Dicentra Formosa</p>
+        <p class="plant-card-desc">Delicate, heart-shaped flowers dangle from arching stems. A woodland charmer that returns each spring.</p>
+        <span class="plant-card-tag tag-perennial">Perennial</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image42.png" alt="Pink Chrysanthemum" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Pink Chrysanthemum</h3>
+        <p class="plant-card-desc">Blooms in September and October, extending the garden's season. Can be moved indoors where it will grow into a flowering tree.</p>
+        <span class="plant-card-tag tag-perennial">Autumn Bloom</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image28.png" alt="Purple Passion Rhododendron" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Purple Passion Rhododendron</h3>
+        <p class="plant-card-desc">Dramatic clusters of deep purple blooms against dark evergreen foliage. A spring essential.</p>
+        <span class="plant-card-tag tag-perennial">Evergreen Shrub</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img src="images/image72.png" alt="Short Dahlia" class="plant-card-img">
+      <div class="plant-card-body">
+        <h3 class="plant-card-name">Short Dahlia</h3>
+        <p class="plant-card-desc">Compact dahlia variety perfect for borders and front-of-bed planting. Returns reliably each year.</p>
+        <span class="plant-card-tag tag-perennial">Perennial</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider ornament between Perennials and Fruit -->
+<div class="section-divider-ornament">
+  <img src="additional%20images/divider%20ornament.png" alt="decorative divider">
+</div>
+
+<!-- FRUIT TREES & EDIBLES -->
+<div class="banner banner-sage" id="fruit">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">From Garden to Table</p>
+      <h2 class="section-title">Fruit Trees &amp; <em>Edible Garden</em></h2>
+      <p class="section-intro">Beyond its ornamental beauty, this garden is productive. Established fruit trees yield figs, persimmons, pears, and pomegranates, while dedicated vegetable beds and edible plants add culinary value.</p>
+    </div>
+
+    <div class="edible-highlight">
+      <h3>Fruit Orchard</h3>
+      <div class="edible-list">
+        <div class="edible-item">
+          <img src="images/image54.png" alt="Fig Tree">
+          <div>
+            <p class="edible-item-name">Fig Trees</p>
+            <p class="edible-item-desc">Several fig trees producing abundant fruit. Both fresh eating and preserving varieties.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image58.png" alt="Fuyu Persimmon">
+          <div>
+            <p class="edible-item-name">Fuyu Persimmon</p>
+            <p class="edible-item-desc">Produces abundantly &mdash; eat fresh off the tree (crunchy and sweet) or let soften for a different taste. Freezes well for year-round enjoyment.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image57.png" alt="Hachiya Persimmon">
+          <div>
+            <p class="edible-item-name">Hachiya Persimmon</p>
+            <p class="edible-item-desc">An astringent variety best enjoyed when fully soft. Perfect for baking persimmon puddings and breads.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image83.png" alt="Pear Tree">
+          <div>
+            <p class="edible-item-name">Pear Tree</p>
+            <p class="edible-item-desc">Already producing pears &mdash; had a bumper crop in 2025. Steel sheet around trunk prevents animals from climbing. A spare sheet is stored under the deck.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image56.png" alt="Honeycrisp Apple">
+          <div>
+            <p class="edible-item-name">Honeycrisp Apple Tree</p>
+            <p class="edible-item-desc">A young tree still establishing. The Honeycrisp is America's favourite apple variety &mdash; crisp, sweet, and tangy.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image7.png" alt="Pomegranate">
+          <div>
+            <p class="edible-item-name">Pomegranate Tree</p>
+            <p class="edible-item-desc">Ornamental and productive, with beautiful orange-red flowers followed by jewel-toned fruit.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image55.png" alt="Jujube Date">
+          <div>
+            <p class="edible-item-name">Jujube Date Fruit Tree</p>
+            <p class="edible-item-desc">A young tree that will produce sweet date-like fruits when mature. Low-maintenance and drought-tolerant.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image85.png" alt="Apricot Tree">
+          <div>
+            <p class="edible-item-name">Apricot Tree</p>
+            <p class="edible-item-desc">Young tree with lovely spring blossoms. Will produce sweet apricots as it matures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edible-highlight" style="background: linear-gradient(135deg, #E4EDE0 0%, #F0EDE4 100%);">
+      <h3>Edible Plants &amp; Herbs</h3>
+      <div class="edible-list">
+        <div class="edible-item">
+          <img src="images/image47.png" alt="Chinese Chives">
+          <div>
+            <p class="edible-item-name">Chinese Chives</p>
+            <p class="edible-item-desc">Cook with eggs or meat. Cut above ground only &mdash; roots regrow multiple times like grass. Dies back in winter, returns in spring.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image82.png" alt="Chinese Toon Tree">
+          <div>
+            <p class="edible-item-name">Chinese Toon Tree</p>
+            <p class="edible-item-desc">First spring leaves are a delicacy &mdash; pickle with salt for cold dishes, or scramble with eggs. A rare and prized culinary tree.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <img src="images/image103.png" alt="Vegetable Field">
+          <div>
+            <p class="edible-item-name">Raised Vegetable Beds</p>
+            <p class="edible-item-desc">Raised beds to suppress weeds. Plant any vegetables you wish. Additional spots marked with bricks can be cleared for planting.</p>
+          </div>
+        </div>
+        <div class="edible-item">
+          <div style="width:70px;height:70px;background:var(--sage-pale);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:24px;">&#127807;</div>
+          <div>
+            <p class="edible-item-name">Rosemary</p>
+            <p class="edible-item-desc">Fresh rosemary for cooking, always within arm's reach of the kitchen. Evergreen and aromatic year-round.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEASONAL GUIDE -->
+<section class="section" id="seasons">
+  <div class="section-header">
+    <p class="section-label">Year-Round Beauty</p>
+    <h2 class="section-title">A Garden for <em>Every Season</em></h2>
+    <p class="section-intro">This garden was planned for continuous interest. Something is always blooming, fruiting, or providing structural beauty throughout the entire year.</p>
+  </div>
+
+  <div class="seasons">
+    <div class="season-card">
+      <span class="season-icon" aria-hidden="true">&#127800;</span>
+      <h3 class="season-name">Spring</h3>
+      <p class="season-blooms">
+        <strong>March:</strong> Camellias, Peony Trees, Chinese Redbud<br>
+        <strong>April:</strong> Peonies, Magnolias, Irises, Dogwood<br>
+        <strong>May:</strong> Roses begin, Weigela, Rhododendron
+      </p>
+    </div>
+    <div class="season-card">
+      <span class="season-icon" aria-hidden="true">&#9728;&#65039;</span>
+      <h3 class="season-name">Summer</h3>
+      <p class="season-blooms">
+        <strong>June&ndash;Aug:</strong> All roses in full bloom, Hydrangeas, Dahlias, Crape Myrtle, Rose of Sharon, Gardenias<br>
+        <strong>Fruit:</strong> Figs ripen, pear harvest
+      </p>
+    </div>
+    <div class="season-card">
+      <span class="season-icon" aria-hidden="true">&#127810;</span>
+      <h3 class="season-name">Autumn</h3>
+      <p class="season-blooms">
+        <strong>Sept&ndash;Oct:</strong> Chrysanthemums, late roses, Japanese Maple colour<br>
+        <strong>Harvest:</strong> Persimmons, pomegranates, dates, late figs, apples
+      </p>
+    </div>
+    <div class="season-card">
+      <span class="season-icon" aria-hidden="true">&#10052;&#65039;</span>
+      <h3 class="season-name">Winter</h3>
+      <p class="season-blooms">
+        <strong>Structure:</strong> Magnolia silhouettes, evergreen camellias, Maple bark<br>
+        <strong>Fragrance:</strong> Late camellias, rosemary<br>
+        <strong>Prep:</strong> Pruning season
+      </p>
+    </div>
+  </div>
+
+  <div style="margin-top: 50px;">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; border-radius: 8px; overflow: hidden;">
+      <div style="text-align: center;">
+        <img src="images/image9.png" alt="Camellia - Spring" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <p style="font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 10px; font-weight: 400;">Spring</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="images/image79.png" alt="Lady of Shalott - Summer" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <p style="font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 10px; font-weight: 400;">Summer</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="images/image42.png" alt="Chrysanthemum - Autumn" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <p style="font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 10px; font-weight: 400;">Autumn</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="images/image4.png" alt="Japanese Maple - Winter" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <p style="font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 10px; font-weight: 400;">Winter</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A GARDEN FOR LIVING -->
+<div class="living-section" id="living">
+  <div class="living-inner">
+    <div class="section-header">
+      <p class="section-label">More Than a Garden</p>
+      <h2 class="section-title">A Garden for <em>Living</em></h2>
+      <p class="section-intro">Beyond its beauty and its botanical depth, this is a garden that invites you to live in it &mdash; to pick, to gather, to pause, and to savour the changing seasons from your own back door.</p>
+    </div>
+
+    <div class="living-hero">
+      <img src="images/image54.png" alt="Fresh figs ripening in the garden" class="living-hero-img">
+      <div class="living-hero-text">
+        <h3>Fresh from the Garden, Every Season</h3>
+        <p>Step outside in July and pick sun-warmed figs straight from the branch. In autumn, the persimmon trees hang heavy with golden fruit &mdash; enough to eat fresh, freeze, and share with the neighbours. The pear tree produced a bumper crop last year, and the pomegranate adds jewel-like seeds to winter salads.</p>
+        <p>There is a particular satisfaction in walking out your own door, cutting a handful of rosemary for the roast, snipping Chinese chives for a stir-fry, or gathering the first spring leaves of the Chinese toon &mdash; a tree prized as a culinary delicacy. This garden feeds the table as generously as it feeds the eye.</p>
+      </div>
+    </div>
+
+    <div class="living-features">
+      <div class="living-feature">
+        <img src="images/image1.png" alt="Fresh-cut peonies from the garden">
+        <div class="living-feature-body">
+          <h4 class="living-feature-title">Flowers for the Table</h4>
+          <p class="living-feature-desc">With over thirty rose varieties and abundant peonies, there are always blooms to cut for the house. A vase of Lady of Shalott roses or fragrant Double Delight transforms a weeknight dinner into something special.</p>
+        </div>
+      </div>
+      <div class="living-feature">
+        <img src="images/image4.png" alt="Japanese Maple through the seasons">
+        <div class="living-feature-body">
+          <h4 class="living-feature-title">Beauty Through Every Window</h4>
+          <p class="living-feature-desc">The garden wraps around the house on three sides, so every room looks out onto something alive. Watch the Japanese maple turn crimson in autumn, the magnolia bloom against a grey sky, or the first camellia open in March &mdash; all from inside.</p>
+        </div>
+      </div>
+      <div class="living-feature">
+        <img src="images/image25.png" alt="Hydrangeas in full summer bloom">
+        <div class="living-feature-body">
+          <h4 class="living-feature-title">A Place to Gather and Unwind</h4>
+          <p class="living-feature-desc">Morning coffee surrounded by birdsong and blooms. An evening outdoors as the garden exhales the scent of roses and gardenias. Children watching butterflies land on the hydrangeas, learning the names of things that grow. This is a garden built for the life that happens around it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARE GUIDE -->
+<div class="banner banner-dark" id="care">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Appendix</p>
+      <h2 class="section-title">Garden <em>Care Guide</em></h2>
+      <p class="section-intro">Essential care instructions to help you maintain this garden's beauty. Most plants here are well-established and require only basic attention.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="care-grid">
+    <div class="care-card care-rose">
+      <h3 class="care-card-title">Roses</h3>
+      <ul>
+        <li><strong>Watering:</strong> Deep watering 2&ndash;3 times per week in summer. Water at the base, not overhead, to prevent fungal disease.</li>
+        <li><strong>Pruning:</strong> Major prune in late winter (February). Remove dead, damaged, and crossing branches. Cut to an outward-facing bud.</li>
+        <li><strong>Feeding:</strong> Apply rose fertiliser in early spring and again after the first flush of bloom. Stop feeding by late August.</li>
+        <li><strong>Deadheading:</strong> Remove spent blooms to encourage repeat flowering. Cut back to the first five-leaflet leaf.</li>
+        <li><strong>Climbing roses:</strong> Train horizontally along fences for maximum bloom. Prune side shoots, not main canes.</li>
+        <li><strong>Winter care:</strong> Mulch around the base with 2&ndash;3 inches of compost or bark after the first frost.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Hydrangeas</h3>
+      <ul>
+        <li><strong>Watering:</strong> Consistent moisture is key. Water deeply when the top inch of soil is dry. They wilt dramatically but recover quickly.</li>
+        <li><strong>Pruning:</strong> Endless Summer types bloom on old and new wood &mdash; prune lightly after flowering. Never cut to the ground.</li>
+        <li><strong>Colour control:</strong> Blue flowers need acidic soil (add aluminium sulphate). Pink flowers need alkaline soil (add lime).</li>
+        <li><strong>Winter:</strong> In colder winters, protect with a layer of mulch over the root zone.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Camellias &amp; Tea Trees</h3>
+      <ul>
+        <li><strong>Soil:</strong> Need acidic, well-drained soil. Mulch with pine bark or composted leaves.</li>
+        <li><strong>Watering:</strong> Regular water in summer, especially during bud formation (late summer). Drought stress causes bud drop.</li>
+        <li><strong>Pruning:</strong> Light shaping after flowering in spring. Remove spent blooms to prevent disease.</li>
+        <li><strong>Protection:</strong> Shelter from harsh winds and morning sun on frozen buds. Established plants are quite hardy.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Peonies</h3>
+      <ul>
+        <li><strong>Herbaceous peonies:</strong> Cut back dead foliage in late autumn. Do NOT move or divide unless necessary &mdash; they resent disturbance.</li>
+        <li><strong>Tree peonies:</strong> Minimal pruning needed. Remove dead wood only. They grow larger each year, eventually becoming small trees.</li>
+        <li><strong>Support:</strong> Use peony rings for herbaceous types to prevent heavy blooms from flopping.</li>
+        <li><strong>Depth:</strong> If replanting, ensure the eyes (buds) are no more than 2 inches below soil level, or they won't bloom.</li>
+      </ul>
+    </div>
+
+    <div class="care-card care-fruit">
+      <h3 class="care-card-title">Fruit Trees</h3>
+      <ul>
+        <li><strong>Persimmon (Fuyu):</strong> Prolific producer. Support heavy branches. Eat fresh off tree (crunchy) or let soften. Wash, bag and freeze extras for year-round use.</li>
+        <li><strong>Fig trees:</strong> Minimal pruning needed. Protect from hard freezes. Harvest when fruit droops and feels soft.</li>
+        <li><strong>Pear tree:</strong> Steel trunk guard prevents animal climbing &mdash; adjust as tree grows. Spare guard stored under deck for apple or date tree.</li>
+        <li><strong>Pomegranate:</strong> Drought-tolerant once established. Prune to maintain 3&ndash;5 main trunks.</li>
+        <li><strong>Apple &amp; Date:</strong> Young trees still establishing. Regular watering and fruit tree fertiliser in spring.</li>
+        <li><strong>General:</strong> Apply dormant spray in winter. Thin fruit in spring for larger, better-quality harvests.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Edible Plants</h3>
+      <ul>
+        <li><strong>Chinese Chives:</strong> Cut above ground only &mdash; roots regrow multiple times. Treat like grass. Surface dies in winter, returns in spring.</li>
+        <li><strong>Chinese Toon:</strong> Harvest only the first spring leaves &mdash; they're the delicacy. Pickle with salt or scramble with eggs.</li>
+        <li><strong>Rosemary:</strong> Nearly indestructible. Full sun, infrequent watering. Prune after flowering to maintain shape.</li>
+        <li><strong>Raised beds:</strong> Raised to suppress weeds. Add compost annually. Brick-covered spots can be cleared for additional planting.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Japanese Maple</h3>
+      <ul>
+        <li><strong>Watering:</strong> Regular water, especially in summer heat. Leaf scorch means it needs more water or afternoon shade.</li>
+        <li><strong>Pruning:</strong> Minimal &mdash; only to remove dead or crossing branches. Prune in late winter. Never top or shear.</li>
+        <li><strong>Mulch:</strong> Keep a 2&ndash;3 inch mulch ring, but away from the trunk to prevent rot.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Magnolias</h3>
+      <ul>
+        <li><strong>Pruning:</strong> Minimal pruning after flowering if needed. Never prune in autumn or winter.</li>
+        <li><strong>Roots:</strong> Surface roots are sensitive &mdash; avoid digging near the base. Mulch don't cultivate.</li>
+        <li><strong>Southern Magnolia:</strong> Evergreen. Drops large leathery leaves year-round &mdash; this is normal, not a problem.</li>
+        <li><strong>Purple Ann:</strong> Deciduous. Late frosts can damage blooms; site in a spot with morning shade if possible.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Dahlias</h3>
+      <ul>
+        <li><strong>Giant Dinnerplate:</strong> Stake early in the season. Pinch growing tips for more blooms.</li>
+        <li><strong>Watering:</strong> Deep, regular watering. Mulch to retain moisture.</li>
+        <li><strong>Winter:</strong> In mild climates, leave tubers in ground with heavy mulch. In colder areas, dig up after first frost, dry, and store in a cool dark place.</li>
+        <li><strong>Dividing:</strong> Divide tubers in spring before planting for more plants.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">Rose of Sharon &amp; Crape Myrtle</h3>
+      <ul>
+        <li><strong>Rose of Sharon:</strong> Very low maintenance. Prune in late winter to control size. Self-seeds freely &mdash; remove seedlings if unwanted.</li>
+        <li><strong>Crape Myrtle:</strong> Never "top" or commit "crape murder." Only remove lower branches and thin interior. Flowers on new wood.</li>
+        <li><strong>Both:</strong> Drought tolerant once established. Full sun for best flowering.</li>
+      </ul>
+    </div>
+
+    <div class="care-card">
+      <h3 class="care-card-title">General Garden Notes</h3>
+      <ul>
+        <li><strong>Bricks in garden:</strong> Used to suppress weeds. Remove to plant vegetables in those spots.</li>
+        <li><strong>Behind the fence:</strong> One apricot tree, two climbing roses, and one honeysuckle.</li>
+        <li><strong>Steel trunk guards:</strong> Adjustable &mdash; loosen as trees grow. Spare under deck.</li>
+        <li><strong>Watering:</strong> Most plants are well-established and drought-tolerant. New plantings (2025) need regular water for the first two years.</li>
+        <li><strong>Mulching:</strong> Apply 2&ndash;3 inches of organic mulch annually in spring. Keep mulch away from plant stems and tree trunks.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Horizontal border above footer -->
+<div class="botanical-border"></div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h2 class="footer-title">Your Garden Awaits</h2>
+  <p class="footer-text">Beautiful and ready for you</p>
+</footer>
+
+</body>
+</html>

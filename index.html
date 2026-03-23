@@ -6,702 +6,147 @@
 <title>The Garden — A Guide for New Owners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream: #F7F3ED; --sage: #7A8B6F; --sage-light: #A8B89E; --sage-pale: #E8EDE4;
-  --forest: #2D3B28; --bark: #5C4A3A; --bark-light: #8B7355;
-  --rose: #C4737B; --rose-pale: #E8C4C8;
-  --gold: #B8964E; --gold-pale: #E8D5A8;
-  --charcoal: #2A2A2A; --white: #FFFFFF;
+  --cream: #F7F3ED; --sage: #7A8B6F; --forest: #2D3B28;
+  --rose: #C4737B; --gold: #B8964E; --bark: #5C4A3A;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Libre Baskerville', Georgia, serif;
-  color: var(--charcoal); background: var(--cream);
-  line-height: 1.7; font-size: 15px;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Libre Baskerville', Georgia, serif; color: var(--cream); }
 
-/* COVER */
 .cover {
   min-height: 100vh; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; text-align: center;
-  position: relative; overflow: hidden;
+  align-items: center; justify-content: center; padding: 3rem 1.5rem;
   background: linear-gradient(160deg, var(--forest) 0%, #3D4F35 40%, var(--sage) 100%);
+  position: relative; text-align: center;
 }
 .cover::before {
-  content: ''; position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
     radial-gradient(ellipse at 20% 80%, rgba(196,115,123,0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(184,150,78,0.12) 0%, transparent 50%);
 }
-.cover-content { position: relative; z-index: 1; padding: 60px 40px; }
-.cover-hero {
-  width: min(600px, 85vw); height: 280px; object-fit: cover;
-  border-radius: 12px; border: 3px solid rgba(255,255,255,0.2);
-  margin-bottom: 50px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+
+/* Photo circle */
+.botanical-ring {
+  display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 2.5rem; position: relative;
 }
-.cover-ornament {
-  font-family: 'Cormorant Garamond', serif; font-size: 28px;
-  color: var(--gold); letter-spacing: 12px; margin-bottom: 20px; opacity: 0.7;
+.botanical-ring img {
+  width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.25);
+  transition: transform 0.4s ease, border-color 0.4s ease;
 }
-.cover h1 {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 7vw, 80px);
-  font-weight: 300; color: var(--white); line-height: 1.1;
-  letter-spacing: 3px; margin-bottom: 20px; text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+.botanical-ring img:hover { transform: scale(1.12); border-color: var(--gold); }
+
+/* Typography */
+h1 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: 0.04em;
+  line-height: 1.1; margin-bottom: 0.3rem;
 }
-.cover h1 em { font-style: italic; font-weight: 400; color: var(--gold-pale); }
-.cover-subtitle {
-  font-family: 'Josefin Sans', sans-serif; font-size: 13px;
-  letter-spacing: 6px; text-transform: uppercase;
-  color: var(--sage-light); margin-bottom: 50px; font-weight: 300;
+.subtitle {
+  font-family: 'Josefin Sans', sans-serif; font-weight: 300;
+  font-size: clamp(0.75rem, 2vw, 1rem); letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
 }
-.cover-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
-.cover-stat { text-align: center; }
-.cover-stat-number {
-  font-family: 'Cormorant Garamond', serif; font-size: 36px;
-  font-weight: 600; color: var(--gold-pale); display: block;
+.intro {
+  max-width: 520px; font-size: 0.92rem; line-height: 1.75;
+  opacity: 0.85; margin-bottom: 3rem;
 }
-.cover-stat-label {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--sage-light); font-weight: 300;
+.ornament { color: var(--gold); font-size: 1.4rem; margin-bottom: 2rem; letter-spacing: 0.5em; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 720px; width: 100%; position: relative; }
+.card {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1rem; padding: 2rem 1.5rem; text-align: center;
+  backdrop-filter: blur(8px); transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  text-decoration: none; color: var(--cream); display: flex; flex-direction: column; align-items: center;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+.card-img {
+  width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.2); margin-bottom: 1.25rem;
+}
+.card h2 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 1.6rem; margin-bottom: 0.2rem;
+}
+.card .duration {
+  font-family: 'Josefin Sans', sans-serif; font-weight: 300;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+.card .brief { font-size: 0.82rem; line-height: 1.65; opacity: 0.8; margin-bottom: 1.5rem; flex: 1; }
+.card .btn {
+  font-family: 'Josefin Sans', sans-serif; font-weight: 400;
+  font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.65rem 1.8rem; border: 1px solid var(--gold); border-radius: 2rem;
+  color: var(--gold); background: transparent; transition: all 0.3s ease; cursor: pointer;
+}
+.card:hover .btn { background: var(--gold); color: var(--forest); }
+
+/* Footer */
+footer {
+  font-family: 'Josefin Sans', sans-serif; font-weight: 300;
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  opacity: 0.4; margin-top: 3rem;
 }
 
-/* NAVIGATION */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(247,243,237,0.92); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(122,139,111,0.15); padding: 0 40px;
-}
-.nav-inner {
-  max-width: 1200px; margin: 0 auto; display: flex;
-  align-items: center; gap: 30px; flex-wrap: wrap; padding: 14px 0;
-}
-.nav a {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px;
-  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
-  color: var(--bark-light); white-space: nowrap; transition: color 0.3s; font-weight: 400;
-}
-.nav a:hover { color: var(--forest); }
-.nav-brand {
-  font-family: 'Cormorant Garamond', serif !important; font-size: 18px !important;
-  letter-spacing: 1px !important; text-transform: none !important;
-  color: var(--forest) !important; font-weight: 500 !important; margin-right: 20px;
+/* Mobile */
+@media (max-width: 600px) {
+  .cards { grid-template-columns: 1fr; max-width: 340px; }
+  .botanical-ring img { width: 56px; height: 56px; }
+  .card-img { width: 80px; height: 80px; }
 }
 
-/* SECTIONS */
-.section { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-label {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px;
-  letter-spacing: 5px; text-transform: uppercase;
-  color: var(--sage); margin-bottom: 12px; font-weight: 400;
-}
-.section-title {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 52px);
-  font-weight: 300; color: var(--forest); line-height: 1.2; margin-bottom: 20px;
-}
-.section-title em { font-style: italic; color: var(--rose); }
-.section-intro {
-  max-width: 680px; margin: 0 auto; text-align: center;
-  color: var(--bark); font-size: 15px; line-height: 1.9;
-}
-
-/* DIVIDER */
-.section-divider { text-align: center; padding: 20px 0; }
-.section-divider img { max-width: 200px; }
-.section-divider-cream img { opacity: 0.8; }
-
-/* WELCOME */
-.intro-text {
-  max-width: 750px; margin: 0 auto; text-align: center;
-  font-size: 17px; line-height: 2; color: var(--bark);
-}
-.callout-box {
-  max-width: 680px; margin: 50px auto 0;
-  background: linear-gradient(135deg, var(--sage-pale) 0%, #EAF0E6 100%);
-  border-radius: 12px; padding: 36px 40px; text-align: center;
-  border: 1px solid rgba(122,139,111,0.2);
-}
-.callout-box p {
-  font-family: 'Cormorant Garamond', serif; font-size: 22px;
-  font-weight: 400; font-style: italic; color: var(--forest); line-height: 1.6;
-}
-
-/* MOSAIC */
-.mosaic {
-  display: grid; grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 200px 200px; gap: 8px;
-  margin: 50px 0 0; border-radius: 8px; overflow: hidden;
-}
-.mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.mosaic img:hover { transform: scale(1.05); }
-.mosaic img:nth-child(1) { grid-column: span 2; }
-.mosaic img:nth-child(2) { grid-column: span 2; }
-.mosaic img:nth-child(3) { grid-column: span 2; }
-.mosaic img:nth-child(4) { grid-column: span 3; }
-.mosaic img:nth-child(5) { grid-column: span 3; }
-
-/* BANNER */
-.banner { width: 100%; padding: 100px 40px; text-align: center; position: relative; }
-.banner-sage { background: linear-gradient(135deg, var(--sage-pale) 0%, var(--cream) 100%); }
-.banner-rose { background: linear-gradient(135deg, #F5E6E8 0%, var(--cream) 100%); }
-.banner-warm { background: linear-gradient(135deg, #F5F0E4 0%, var(--cream) 100%); }
-
-/* PLANT CARDS */
-.plant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-.plant-card {
-  background: var(--white); border-radius: 8px; overflow: hidden;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.plant-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-.plant-card-img { width: 100%; height: 240px; object-fit: cover; display: block; }
-.plant-card-body { padding: 24px; }
-.plant-card-name {
-  font-family: 'Cormorant Garamond', serif; font-size: 22px;
-  font-weight: 500; color: var(--forest); margin-bottom: 8px; line-height: 1.3;
-}
-.plant-card-desc { font-size: 13px; color: var(--bark); line-height: 1.7; }
-.plant-card-tag {
-  display: inline-block; font-family: 'Josefin Sans', sans-serif;
-  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 20px; margin-top: 12px; font-weight: 400;
-}
-.tag-perennial { background: var(--sage-pale); color: var(--forest); }
-.tag-fruit { background: var(--gold-pale); color: var(--bark); }
-.tag-rose { background: var(--rose-pale); color: var(--rose); }
-.tag-tree { background: #E4DED5; color: var(--bark); }
-
-/* NOTE BOX */
-.note-box {
-  max-width: 750px; margin: 0 auto 50px;
-  background: linear-gradient(135deg, #F5E6E8 0%, #FDF5F6 100%);
-  border-radius: 10px; padding: 28px 36px; text-align: center;
-  border: 1px solid rgba(196,115,123,0.15);
-}
-.note-box p { font-size: 15px; color: var(--bark); line-height: 1.8; }
-
-/* EDIBLE LIST */
-.edible-block { max-width: 680px; margin: 0 auto; }
-.edible-block h3 {
-  font-family: 'Cormorant Garamond', serif; font-size: 24px;
-  font-weight: 400; color: var(--forest); margin-bottom: 20px; margin-top: 40px;
-}
-.edible-block h3:first-child { margin-top: 0; }
-.edible-block ul { list-style: none; padding: 0; }
-.edible-block li {
-  font-size: 15px; color: var(--bark); line-height: 1.8;
-  padding: 6px 0; border-bottom: 1px solid rgba(122,139,111,0.1);
-}
-.edible-block li:last-child { border-bottom: none; }
-
-/* MAP */
-.map-container {
-  background: var(--white); border-radius: 12px; padding: 40px;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.05); text-align: center;
-}
-.map-container img { width: 100%; max-width: 900px; border-radius: 8px; }
-.map-legend {
-  display: flex; justify-content: center; gap: 30px;
-  flex-wrap: wrap; margin-top: 30px;
-}
-.map-legend-item {
-  display: flex; align-items: center; gap: 8px;
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px;
-  letter-spacing: 1px; color: var(--bark);
-}
-.map-legend-dot { width: 12px; height: 12px; border-radius: 50%; }
-
-/* SEASONS */
-.seasons-timeline {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-  margin-top: 40px; background: var(--white); border-radius: 8px;
-  overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.04);
-}
-.season-col {
-  padding: 28px 20px; text-align: center;
-  border-right: 1px solid rgba(122,139,111,0.1);
-}
-.season-col:last-child { border-right: none; }
-.season-icon { font-size: 28px; margin-bottom: 10px; display: block; }
-.season-name {
-  font-family: 'Cormorant Garamond', serif; font-size: 20px;
-  font-weight: 500; color: var(--forest); margin-bottom: 8px;
-}
-.season-plants { font-size: 12px; color: var(--bark); line-height: 1.6; }
-
-/* LIFESTYLE */
-.lifestyle-layout {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
-  max-width: 1000px; margin: 0 auto; align-items: center;
-}
-.lifestyle-layout img {
-  width: 100%; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-}
-.lifestyle-list { list-style: none; padding: 0; }
-.lifestyle-list li {
-  font-size: 15px; color: var(--bark); line-height: 1.8;
-  padding: 8px 0 8px 24px; position: relative;
-}
-.lifestyle-list li::before {
-  content: ''; position: absolute; left: 0; top: 16px;
-  width: 8px; height: 8px; background: var(--sage-light); border-radius: 50%;
-}
-
-/* CARE */
-.care-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
-.care-card {
-  background: var(--white); border-radius: 8px; padding: 36px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.04); border-left: 3px solid var(--sage);
-}
-.care-card-title {
-  font-family: 'Cormorant Garamond', serif; font-size: 24px;
-  font-weight: 500; color: var(--forest); margin-bottom: 18px;
-}
-.care-card ul { list-style: none; padding: 0; }
-.care-card li {
-  font-size: 14px; color: var(--bark); line-height: 1.8;
-  padding: 6px 0 6px 20px; position: relative;
-}
-.care-card li::before {
-  content: ''; position: absolute; left: 0; top: 14px;
-  width: 6px; height: 6px; background: var(--sage-light); border-radius: 50%;
-}
-.care-card.care-note { border-left-color: var(--bark-light); }
-.care-card.care-note li::before { background: #D4CCC4; }
-
-/* BOTANICAL BORDER */
-.botanical-border {
-  width: 100%;
-  height: 80px;
-  background-image: url('additional images/horizontal border.png');
-  background-repeat: repeat-x;
-  background-size: auto 80px;
-  background-position: center;
-  opacity: 0.7;
-}
-
-/* FOOTER */
-.footer {
-  background: var(--forest); padding: 60px 40px;
-  text-align: center; color: var(--sage-light);
-}
-.footer-title {
-  font-family: 'Cormorant Garamond', serif; font-size: 28px;
-  font-weight: 300; color: var(--white); margin-bottom: 12px;
-}
-.footer-text {
-  font-family: 'Josefin Sans', sans-serif; font-size: 12px;
-  letter-spacing: 2px; font-weight: 300;
-}
-
-/* PRINT */
+/* Print */
 @media print {
-  .nav { display: none; }
-  .cover { min-height: auto; padding: 80px 40px; page-break-after: always; }
-  .section { page-break-inside: avoid; }
-  .plant-card { break-inside: avoid; }
-  body { font-size: 12px; }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-inner {
-    flex-wrap: nowrap; overflow-x: auto;
-    scrollbar-width: none; -ms-overflow-style: none;
-  }
-  .nav-inner::-webkit-scrollbar { display: none; }
-  .plant-grid { grid-template-columns: 1fr; }
-  .section { padding: 60px 24px; }
-  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .mosaic img:nth-child(n) { grid-column: span 1; }
-  .mosaic img:nth-child(1) { grid-column: span 2; }
-  .cover-hero { height: 200px; }
-  .callout-box { padding: 28px 24px; }
-  .seasons-timeline { grid-template-columns: 1fr 1fr; }
-  .season-col { border-bottom: 1px solid rgba(122,139,111,0.1); }
-  .care-grid { grid-template-columns: 1fr; }
-  .banner { padding: 60px 24px; }
-  .lifestyle-layout { grid-template-columns: 1fr; gap: 30px; }
+  .cover { min-height: auto; padding: 2cm; background: white !important; color: #2D3B28 !important; }
+  .card { border: 1px solid #ccc; color: #2D3B28; }
+  .card .btn { border-color: #2D3B28; color: #2D3B28; }
+  .subtitle, .card .duration { color: var(--bark); }
+  footer { color: #666; }
 }
 </style>
 </head>
 <body>
-
-<!-- COVER -->
-<section class="cover" id="top">
-  <div class="cover-content">
-    <img src="additional images/rose on fence.jpeg" alt="Roses blooming along the garden fence" class="cover-hero">
-    <div class="cover-ornament">&bull; &bull; &bull;</div>
-    <h1>The <em>Garden</em></h1>
-    <p class="cover-subtitle">A Guide for New Owners</p>
-    <div class="cover-stats">
-      <div class="cover-stat">
-        <span class="cover-stat-number">100+</span>
-        <span class="cover-stat-label">Plants</span>
-      </div>
-      <div class="cover-stat">
-        <span class="cover-stat-number">8</span>
-        <span class="cover-stat-label">Fruit Trees</span>
-      </div>
-      <div class="cover-stat">
-        <span class="cover-stat-number">4</span>
-        <span class="cover-stat-label">Seasons of Beauty</span>
-      </div>
-    </div>
+<div class="cover">
+  <div class="botanical-ring">
+    <img src="images/image1.png" alt="Garden highlight">
+    <img src="images/image25.png" alt="Garden highlight">
+    <img src="images/image79.png" alt="Garden highlight">
+    <img src="images/image4.png" alt="Garden highlight">
+    <img src="images/image31.png" alt="Garden highlight">
+    <img src="images/image67.png" alt="Garden highlight">
   </div>
-</section>
-
-<!-- NAVIGATION -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-brand">The Garden</a>
-    <a href="#welcome">Welcome</a>
-    <a href="#highlights">Highlights</a>
-    <a href="#roses">Roses</a>
-    <a href="#fruit">Fruit</a>
-    <a href="#trees">Trees</a>
-    <a href="#seasons">Seasons</a>
-    <a href="#lifestyle">Living</a>
-    <a href="#care">Care</a>
+  <h1>The Garden</h1>
+  <div class="subtitle">A Guide for New Owners</div>
+  <div class="ornament">&#8226; &#8226; &#8226;</div>
+  <p class="intro">Over 100 plants, trees, and flowers across four seasons. Choose your path to discover this extraordinary garden.</p>
+  <div class="cards">
+    <a href="quick-tour.html" class="card">
+      <img class="card-img" src="additional%20images/rose%20on%20fence.jpeg" alt="Rose on fence">
+      <h2>Quick Tour</h2>
+      <div class="duration">5 minute read</div>
+      <p class="brief">The highlights, the fruit trees, and everything you need to know&thinsp;&mdash;&thinsp;in a nutshell.</p>
+      <span class="btn">Start Quick Tour &rarr;</span>
+    </a>
+    <a href="in-depth.html" class="card">
+      <img class="card-img" src="images/image71.png" alt="Eden Climber rose">
+      <h2>In-Depth Tour</h2>
+      <div class="duration">15 minute read</div>
+      <p class="brief">Every plant, every variety, complete care guide&thinsp;&mdash;&thinsp;the full garden encyclopedia.</p>
+      <span class="btn">Start In-Depth Tour &rarr;</span>
+    </a>
   </div>
-</nav>
-
-<!-- WELCOME -->
-<section class="section" id="welcome">
-  <div class="section-header">
-    <p class="section-label">Welcome</p>
-    <h2 class="section-title">A Garden That <em>Grows with You</em></h2>
-  </div>
-  <div class="intro-text">
-    <p>This garden has been lovingly tended for years — and it shows. Over 100 plants, trees, and flowers bloom beautifully across all four seasons.</p>
-  </div>
-  <div class="callout-box">
-    <p>"These plants have been growing here for years. They know what they're doing — and soon you will too."</p>
-  </div>
-  <div class="mosaic">
-    <img src="images/image2.png" alt="Pink Peonies">
-    <img src="images/image79.png" alt="Lady of Shalott Rose">
-    <img src="images/image4.png" alt="Japanese Maple">
-    <img src="images/image25.png" alt="Hydrangea">
-    <img src="images/image54.png" alt="Fig Tree">
-  </div>
-</section>
-
-<!-- DIVIDER -->
-<div class="section-divider section-divider-cream">
-  <img src="additional images/divider ornament.png" alt="">
+  <footer>A garden grown with love, ready for its next chapter</footer>
 </div>
-
-<!-- GARDEN HIGHLIGHTS -->
-<section class="banner banner-sage" id="highlights">
-  <div class="section-header">
-    <p class="section-label">Perennials</p>
-    <h2 class="section-title">The <em>Stars</em> of the Garden</h2>
-    <p class="section-intro">These showstoppers come back year after year with even more blooms each time.</p>
-  </div>
-  <div class="plant-grid" style="max-width:1200px; margin:0 auto;">
-    <div class="plant-card">
-      <img src="images/image4.png" alt="Japanese Maple" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Japanese Maple</h3>
-        <p class="plant-card-desc">Brilliant red autumn colour — the garden's centrepiece.</p>
-        <span class="plant-card-tag tag-tree">Autumn Colour</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image31.png" alt="Magnolia" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Magnolia</h3>
-        <p class="plant-card-desc">Huge purple-pink blooms every spring — absolutely breathtaking.</p>
-        <span class="plant-card-tag tag-tree">Spring Bloom</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image1.png" alt="Peonies" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Peonies</h3>
-        <p class="plant-card-desc">Lush, fragrant blooms every May — returns each spring with even more flowers.</p>
-        <span class="plant-card-tag tag-perennial">Spring Flowers</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image25.png" alt="Hydrangeas" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Hydrangeas</h3>
-        <p class="plant-card-desc">Big, gorgeous flower heads all summer long.</p>
-        <span class="plant-card-tag tag-perennial">Summer Bloom</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image13.png" alt="Dahlias" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Dahlias</h3>
-        <p class="plant-card-desc">Dinner-plate sized blooms in bold colours through late summer.</p>
-        <span class="plant-card-tag tag-perennial">Perennial</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image73.png" alt="Bleeding Hearts" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Bleeding Hearts</h3>
-        <p class="plant-card-desc">Delicate heart-shaped flowers — a spring fairy tale.</p>
-        <span class="plant-card-tag tag-perennial">Shade-loving</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THE ROSE GARDEN -->
-<section class="banner banner-rose" id="roses">
-  <div class="section-header">
-    <p class="section-label">The Roses</p>
-    <h2 class="section-title">Over 15 Varieties of <em>Roses</em></h2>
-    <p class="section-intro">Repeat-blooming, disease-resistant varieties chosen to thrive in this garden.</p>
-  </div>
-  <div class="note-box">
-    <p><strong>All disease-resistant, repeat-blooming varieties.</strong> A February prune and occasional water is all they need.</p>
-  </div>
-  <div class="plant-grid" style="max-width:1200px; margin:0 auto;">
-    <div class="plant-card">
-      <img src="images/image71.png" alt="Eden Climber" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Eden Climber</h3>
-        <p class="plant-card-desc">Classic pink climber that covers the fence in blooms.</p>
-        <span class="plant-card-tag tag-rose">Climbing Rose</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image79.png" alt="Lady of Shalott" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Lady of Shalott</h3>
-        <p class="plant-card-desc">Apricot-orange David Austin beauty — blooms all season.</p>
-        <span class="plant-card-tag tag-rose">David Austin</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image36.png" alt="Queen of Sweden" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Queen of Sweden</h3>
-        <p class="plant-card-desc">Soft pink, elegant cups — one of the most disease-resistant.</p>
-        <span class="plant-card-tag tag-rose">David Austin</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image63.png" alt="Double Delight" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Double Delight</h3>
-        <p class="plant-card-desc">Cream and red bicolour with incredible fragrance.</p>
-        <span class="plant-card-tag tag-rose">Fragrant</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image65.png" alt="Iceberg" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Iceberg</h3>
-        <p class="plant-card-desc">Pure white, non-stop blooms — the world's most popular rose.</p>
-        <span class="plant-card-tag tag-rose">Floribunda</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image49.png" alt="Distant Drum" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Distant Drum</h3>
-        <p class="plant-card-desc">Unusual mauve-bronze petals — a real conversation starter.</p>
-        <span class="plant-card-tag tag-rose">Unique Colour</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIVIDER -->
-<div class="section-divider">
-  <img src="additional images/divider ornament.png" alt="">
-</div>
-
-<!-- PICK YOUR OWN -->
-<section class="section" id="fruit">
-  <div class="section-header">
-    <p class="section-label">Pick Your Own</p>
-    <h2 class="section-title">Fresh Fruit, <em>Right Outside</em></h2>
-    <p class="section-intro">Eight fruit trees and a kitchen garden — step outside and pick something fresh.</p>
-  </div>
-  <div class="edible-block">
-    <h3>Fruit Trees</h3>
-    <ul>
-      <li>&#127824; <strong>Pear tree</strong> — already producing, bumper crop in 2025</li>
-      <li>&#127825; <strong>Fig trees</strong> — several, fruit every summer</li>
-      <li>&#127818; <strong>Persimmons</strong> — eat fresh or freeze for later</li>
-      <li>&#127822; <strong>Apple tree</strong> — young, Honeycrisp variety</li>
-      <li>&#127792; <strong>Pomegranate</strong> — drought-tolerant, beautiful flowers too</li>
-      <li>&#127819; <strong>Jujube dates &amp; apricot</strong> — young trees, growing nicely</li>
-    </ul>
-    <h3>Kitchen Garden</h3>
-    <ul>
-      <li>&#127807; <strong>Chinese chives</strong> — cut and regrow, like grass</li>
-      <li>&#127807; <strong>Rosemary</strong> — evergreen, always fresh</li>
-      <li>&#129388; <strong>Raised veggie beds</strong> — ready for whatever you like</li>
-    </ul>
-  </div>
-</section>
-
-<!-- BEAUTIFUL TREES -->
-<section class="banner banner-sage" id="trees">
-  <div class="section-header">
-    <p class="section-label">Flowering Trees</p>
-    <h2 class="section-title">Shade, Structure &amp; <em>Year-Round Green</em></h2>
-    <p class="section-intro">Established trees that give the garden its structure and charm.</p>
-  </div>
-  <div class="plant-grid" style="max-width:1200px; margin:0 auto;">
-    <div class="plant-card">
-      <img src="images/image5.png" alt="Dogwood" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Dogwood</h3>
-        <p class="plant-card-desc">White spring blossoms, red autumn leaves — beautiful in every season.</p>
-        <span class="plant-card-tag tag-tree">Ornamental Tree</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image29.png" alt="Crape Myrtle" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Crape Myrtle</h3>
-        <p class="plant-card-desc">Masses of pink flowers all summer — loves the heat.</p>
-        <span class="plant-card-tag tag-tree">Summer Bloom</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image9.png" alt="Camellias" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Camellias</h3>
-        <p class="plant-card-desc">Evergreen with rose-like blooms from autumn through spring.</p>
-        <span class="plant-card-tag tag-tree">Evergreen</span>
-      </div>
-    </div>
-    <div class="plant-card">
-      <img src="images/image6.png" alt="Gardenias" class="plant-card-img">
-      <div class="plant-card-body">
-        <h3 class="plant-card-name">Gardenias</h3>
-        <p class="plant-card-desc">Heavenly fragrance and glossy evergreen foliage year-round.</p>
-        <span class="plant-card-tag tag-tree">Fragrant</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GARDEN MAP -->
-<section class="section" id="map">
-  <div class="section-header">
-    <p class="section-label">Overview</p>
-    <h2 class="section-title">Garden <em>Map</em></h2>
-  </div>
-  <div class="map-container">
-    <img src="additional images/garden map -v3.png" alt="Garden layout map">
-    <div class="map-legend">
-      <div class="map-legend-item">
-        <span class="map-legend-dot" style="background: var(--rose);"></span> Roses
-      </div>
-      <div class="map-legend-item">
-        <span class="map-legend-dot" style="background: var(--sage);"></span> Perennials
-      </div>
-      <div class="map-legend-item">
-        <span class="map-legend-dot" style="background: var(--gold);"></span> Fruit Trees
-      </div>
-      <div class="map-legend-item">
-        <span class="map-legend-dot" style="background: var(--bark);"></span> Ornamental Trees
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SEASONS -->
-<section class="banner banner-warm" id="seasons">
-  <div class="section-header">
-    <p class="section-label">Through the Year</p>
-    <h2 class="section-title">Four Seasons of <em>Beauty</em></h2>
-    <p class="section-intro">There's something beautiful happening in this garden in every season.</p>
-  </div>
-  <div class="seasons-timeline" style="max-width:1000px; margin:40px auto 0;">
-    <div class="season-col">
-      <span class="season-icon">&#127800;</span>
-      <h3 class="season-name">Spring</h3>
-      <p class="season-plants">Camellias, peonies, magnolias, bleeding hearts</p>
-    </div>
-    <div class="season-col">
-      <span class="season-icon">&#9728;&#65039;</span>
-      <h3 class="season-name">Summer</h3>
-      <p class="season-plants">Roses, hydrangeas, dahlias, crape myrtle</p>
-    </div>
-    <div class="season-col">
-      <span class="season-icon">&#127810;</span>
-      <h3 class="season-name">Autumn</h3>
-      <p class="season-plants">Chrysanthemums, persimmons, maple colour</p>
-    </div>
-    <div class="season-col">
-      <span class="season-icon">&#10052;&#65039;</span>
-      <h3 class="season-name">Winter</h3>
-      <p class="season-plants">Evergreen camellias, gardenias, pruning time</p>
-    </div>
-  </div>
-</section>
-
-<!-- LIFE IN THE GARDEN -->
-<section class="section" id="lifestyle">
-  <div class="section-header">
-    <p class="section-label">Life in the Garden</p>
-    <h2 class="section-title">Living with the <em>Garden</em></h2>
-  </div>
-  <div class="lifestyle-layout">
-    <img src="images/image79.png" alt="Lady of Shalott rose in bloom">
-    <ul class="lifestyle-list">
-      <li>Pick figs and persimmons straight from the tree</li>
-      <li>Cut fresh roses for the kitchen table</li>
-      <li>Watch the magnolia bloom from the living room window</li>
-      <li>Let the kids hunt for ladybugs and butterflies</li>
-      <li>Grow your own tomatoes in the raised beds</li>
-      <li>Morning coffee surrounded by birdsong</li>
-    </ul>
-  </div>
-</section>
-
-<!-- CARE GUIDE -->
-<section class="section" id="care">
-  <div class="section-header">
-    <p class="section-label">Care Guide</p>
-    <h2 class="section-title">Keeping It <em>Beautiful</em></h2>
-    <p class="section-intro">Here's the short version of what the garden needs from you.</p>
-  </div>
-  <div class="care-grid">
-    <div class="care-card">
-      <h3 class="care-card-title">The Basics</h3>
-      <ul>
-        <li>Water 2-3 times a week in summer</li>
-        <li>Mulch once in spring</li>
-        <li>Prune roses in February</li>
-      </ul>
-    </div>
-    <div class="care-card care-note">
-      <h3 class="care-card-title">Good to Know</h3>
-      <ul>
-        <li>Chives regrow like grass — just cut above the ground</li>
-        <li>Persimmons freeze well — you'll have plenty to share</li>
-        <li>Steel guard on pear tree — loosen as it grows (spare under deck)</li>
-        <li>Bricks suppress weeds — remove to plant veggies if you like</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- HORIZONTAL BORDER -->
-<div class="botanical-border"></div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <h2 class="footer-title">Your Garden Awaits</h2>
-  <p class="footer-text">Beautiful and ready for you</p>
-</footer>
-
 </body>
 </html>
