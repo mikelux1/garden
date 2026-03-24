@@ -121,6 +121,12 @@ footer {
   footer { color: #666; }
 }
 </style>
+<!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZLZEWQTB6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-4ZLZEWQTB6');
+</script>
 </head>
 <body>
 <div class="cover">
@@ -154,5 +160,16 @@ footer {
   </div>
   <footer>A garden grown with love, ready for its next chapter</footer>
 </div>
+<script>
+// Track tour selection
+document.querySelectorAll('.card').forEach(function(card){
+  card.addEventListener('click',function(){
+    var tour=card.querySelector('h2').textContent.trim();
+    gtag('event','tour_selected',{tour_name:tour});
+  });
+});
+// Track print
+window.addEventListener('beforeprint',function(){gtag('event','print_page',{page_title:document.title});});
+</script>
 </body>
 </html>
