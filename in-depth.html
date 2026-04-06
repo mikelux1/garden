@@ -113,14 +113,14 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .footer-text { font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:2px; font-weight:300; }
 .featured { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px; }
 .featured.reverse { direction:rtl; } .featured.reverse > * { direction:ltr; }
-.featured-img { width:100%; height:450px; object-fit:cover; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
+.featured-img { width:100%; height:450px; object-fit:cover; object-position:center center; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
 .featured-content { padding:20px 0; }
 .featured-label { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); margin-bottom:12px; font-weight:400; }
 .featured-name { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:400; color:var(--forest); line-height:1.2; margin-bottom:20px; }
 .featured-desc { font-size:15px; color:var(--bark); line-height:1.9; margin-bottom:20px; }
 .plant-card-origin { font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--sage); margin-bottom:10px; font-weight:400; }
 .rose-hero-banner { width:100%; position:relative; overflow:hidden; border-radius:8px; margin-bottom:60px; }
-.rose-hero-banner img { width:100%; height:350px; object-fit:cover; display:block; }
+.rose-hero-banner img { width:100%; height:350px; object-fit:cover; object-position:center center; display:block; }
 .rose-hero-banner::before { content:''; position:absolute; top:0; left:0; right:0; height:80px; background:linear-gradient(to bottom,rgba(247,243,237,.6),transparent); z-index:1; }
 .rose-hero-banner::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top,rgba(247,243,237,.6),transparent); z-index:1; }
 .section-divider-ornament { display:flex; align-items:center; justify-content:center; padding:30px 0; }
@@ -158,12 +158,12 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .living-section { background:linear-gradient(135deg,#F0EDE4 0%,var(--cream) 50%,#E8EDE4 100%); padding:100px 40px; }
 .living-inner { max-width:1200px; margin:0 auto; }
 .living-hero { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:70px; }
-.living-hero-img { width:100%; height:500px; object-fit:cover; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
+.living-hero-img { width:100%; height:500px; object-fit:cover; object-position:center center; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.1); }
 .living-hero-text h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--forest); line-height:1.4; margin-bottom:20px; }
 .living-hero-text p { font-size:15px; color:var(--bark); line-height:1.9; margin-bottom:16px; }
 .living-features { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
 .living-feature { background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 2px 20px rgba(0,0,0,.04); }
-.living-feature img { width:100%; height:200px; object-fit:cover; display:block; }
+.living-feature img { width:100%; height:200px; object-fit:cover; object-position:center center; display:block; }
 .living-feature-body { padding:24px; }
 .living-feature-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--forest); margin-bottom:8px; }
 .living-feature-desc { font-size:13px; color:var(--bark); line-height:1.7; }
@@ -179,7 +179,7 @@ body { font-family:'Libre Baskerville',Georgia,serif; color:var(--charcoal); bac
 .care-card.care-rose { border-left-color:var(--rose); } .care-card.care-rose li::before { background:var(--rose-pale); }
 .care-card.care-fruit { border-left-color:var(--gold); } .care-card.care-fruit li::before { background:var(--gold-pale); }
 @media print { .nav{display:none} .cover{min-height:auto;padding:80px 40px;page-break-after:always} .section{page-break-inside:avoid} .plant-card{break-inside:avoid} .care-card{break-inside:avoid} body{font-size:12px} }
-@media (max-width:768px) { body{font-size:16px} .nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none} .nav-inner::-webkit-scrollbar{display:none} .plant-grid{grid-template-columns:1fr} .section{padding:60px 24px} .section-intro{font-size:16px} .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto} .mosaic img:nth-child(n){grid-column:span 1} .mosaic img:nth-child(1){grid-column:span 2} .cover-hero{height:200px} .cover-botanical{max-width:280px;margin-left:auto;margin-right:auto} .cover-botanical img{width:80px;height:80px} .cover-stat-label{font-size:11px} .callout-box{padding:28px 24px} .callout-box p{font-size:20px} .seasons-timeline{grid-template-columns:1fr 1fr} .season-col{border-bottom:1px solid rgba(122,139,111,.1)} .season-plants{font-size:13px} .care-grid{grid-template-columns:1fr} .care-card li{font-size:15px} .banner{padding:60px 24px} .lifestyle-layout{grid-template-columns:1fr;gap:30px} .featured{grid-template-columns:1fr;gap:30px} .featured.reverse{direction:ltr} .featured-img{height:auto;max-height:350px} .featured-desc{font-size:16px} .living-hero{grid-template-columns:1fr;gap:30px} .living-hero-img{height:300px} .living-features{grid-template-columns:1fr} .living-hero-text p{font-size:16px} .seasons{grid-template-columns:1fr 1fr} .section-divider-ornament img{width:150px} .rose-hero-banner img{height:220px} .edible-list{grid-template-columns:1fr} .plant-card-desc{font-size:14px} .map-ref-item{font-size:14px} .map-overlay svg{width:max(100%,1200px)} }
+@media (max-width:768px) { body{font-size:16px} .nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none} .nav-inner::-webkit-scrollbar{display:none} .plant-grid{grid-template-columns:1fr} .section{padding:60px 24px} .section-intro{font-size:16px} .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto} .mosaic img:nth-child(n){grid-column:span 1} .mosaic img:nth-child(1){grid-column:span 2} .cover-hero{height:240px;object-position:center center} .cover-botanical{max-width:280px;margin-left:auto;margin-right:auto} .cover-botanical img{width:80px;height:80px} .cover-stat-label{font-size:11px} .callout-box{padding:28px 24px} .callout-box p{font-size:20px} .seasons-timeline{grid-template-columns:1fr 1fr} .season-col{border-bottom:1px solid rgba(122,139,111,.1)} .season-plants{font-size:13px} .care-grid{grid-template-columns:1fr} .care-card li{font-size:15px} .banner{padding:60px 24px} .lifestyle-layout{grid-template-columns:1fr;gap:30px} .featured{grid-template-columns:1fr;gap:30px} .featured.reverse{direction:ltr} .featured-img{height:auto;max-height:400px;object-position:center center} .featured-desc{font-size:16px} .living-hero{grid-template-columns:1fr;gap:30px} .living-hero-img{height:350px} .living-features{grid-template-columns:1fr} .living-feature img{height:260px} .living-hero-text p{font-size:16px} .seasons{grid-template-columns:1fr 1fr} .section-divider-ornament img{width:150px} .rose-hero-banner img{height:280px} .plant-card-img{height:280px} .edible-list{grid-template-columns:1fr} .plant-card-desc{font-size:14px} .mosaic img{height:auto;aspect-ratio:4/3} .map-ref-item{font-size:14px} .map-overlay svg{width:max(100%,1200px)} }
 </style>
 <!-- Google Analytics (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZLZEWQTB6"></script>
